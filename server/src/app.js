@@ -4,9 +4,11 @@
  */
 
 const express = require('express');
+const gamesRouter = require("./routes/games");
 
 module.exports = () => {
   const app = express();
   app.use(express.json());
+  app.use(gamesRouter);
   return app;
 }

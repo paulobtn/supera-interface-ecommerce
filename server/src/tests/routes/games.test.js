@@ -10,11 +10,29 @@ it('Carrega todos os jogos', async () => {
   sucedida, se o conteúdo é json e se a quantidade de jogos
   está correta */
 
-  await request(app())
+  const response = await request(app())
     .get('/api/games')
     .expect(200)
-    .expect("Content-Type", /json/)
-    .expect((res) => {
-      res.body.length = 9;
-     });
+    .expect("Content-Type", /json/) ;
+
+  expect(response.body.length).toEqual(9);
+
+});
+
+it('Carrega um jogo específico', async () => {
+
+  /*Carrega o the witcher III e verifica se todos
+  os dados estão corretos */
+
+  const response = await request(app())
+    .get('/api/games/102')
+    .expect(200)
+    .expect("Content-Type", /json/) ;
+
+  expect(response.body.id).toEqual(102);
+  expect(response.body.name).toEqual("The Witcher III Wild Hunt");
+  expect(response.body.price).toEqual(119.5);
+  expect(response.body.score).toEqual(250);
+  expect(response.body.image).toEqual("the-witcher-iii-wild-hunt.png");
+
 });

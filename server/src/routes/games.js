@@ -19,4 +19,17 @@ router.get('/api/games', async (req, res) => {
 
 });
 
+router.get('/api/games/:id', async (req, res) => {
+  //recupera um jogo específico
+  
+  const {id} = req.params
+  const game = await GamesRepo.findById(id);
+
+  if(game){
+    res.send(game);
+  } else{
+    res.sendStatus(404);
+  }
+});
+
 module.exports = router;

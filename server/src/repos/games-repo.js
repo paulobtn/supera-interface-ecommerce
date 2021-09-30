@@ -23,7 +23,15 @@ class GamesRepo {
   }
   
   //Recupera um jogo em particular
-  static async findById(id){}
+  static async findById(id){
+
+    let games = loadProducts();
+    let game = games.find((entry) => {
+      return entry.id == id
+    });
+    
+    return game;
+  }
 
 }
 

@@ -7,8 +7,12 @@ const express = require('express');
 const gamesRouter = require("./routes/games");
 
 module.exports = () => {
+
   const app = express();
-  app.use(express.json());
-  app.use(gamesRouter);
+  
+  // middlewares
+  app.use(express.json()); // para conseguir ler o body
+  app.use(gamesRouter);    // rotas para buscar os jogos
+
   return app;
 }

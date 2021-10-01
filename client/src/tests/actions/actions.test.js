@@ -1,7 +1,6 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import axios from 'axios';
 
 import {fetchGames} from '../../actions';
 import {initState} from '../../reducers/shoppingReducer';

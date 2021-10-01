@@ -1,6 +1,6 @@
 import {FETCH_GAMES, SET_ERROR} from '../actions/types';
 
-const initState = {
+export const initState = { //exportando para fins de teste
     items: [],
     shoppingCart:[],
     error: null

@@ -4,18 +4,13 @@ import moxios from 'moxios';
 import axios from 'axios';
 
 import {fetchGames} from '../../actions';
+import {initState} from '../../reducers/shoppingReducer';
 import { FETCH_GAMES } from "../../actions/types";
-
-const initState = {
-    items: [],
-    shoppingCart:[]
-};
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-
-describe('Testa as actions', () => {
+describe('Testa action', () => {
 
   beforeEach(() => {
     moxios.install();
@@ -25,7 +20,7 @@ describe('Testa as actions', () => {
     moxios.uninstall();
   });
 
-  it('de recuperar todos os jogos', () =>{
+  it('FETCH_GAMES', () =>{
   
     const store = mockStore(initState);
 

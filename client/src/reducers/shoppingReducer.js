@@ -1,8 +1,9 @@
-import {FETCH_GAMES} from '../actions/types';
+import {FETCH_GAMES, SET_ERROR} from '../actions/types';
 
 const initState = {
     items: [],
-    shoppingCart:[]
+    shoppingCart:[],
+    error: null
 }
 
 const shoppingReducer = (state = initState, action) => {
@@ -13,8 +14,14 @@ const shoppingReducer = (state = initState, action) => {
          * redux store */
             return {
               ...state,
+              error: null,
               items: action.payload
             }
+        case SET_ERROR:
+          return {
+            ...state,
+            error: action.payload
+          }
         default:
             return state;
     }

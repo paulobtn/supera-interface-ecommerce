@@ -7,4 +7,5 @@
  * diretamente todos os 9 itens.
  * */
 export const FETCH_GAMES = "fetch_games";
+export const SET_ERROR   = "set_error";
 

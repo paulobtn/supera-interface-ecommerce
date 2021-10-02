@@ -1,6 +1,7 @@
 import GamesList from './GamesList';
 import useRequest from '../hooks/useRequest';
-import {RESOLVED, REJECTED} from '../hooks/useRequest';
+
+import {renderWithRequest} from './helpers';
 
 const Home = () => {
   
@@ -9,24 +10,15 @@ const Home = () => {
     method: 'get'
   });
 
-  const renderHome = () => {
-    switch(response.status){
-      case RESOLVED:
-        return (
-          <div>
-            <GamesList
-              games = {response.data}
-            />
-          </div>
-        )
-      case REJECTED:
-        return response.error.response.statusText;
-      default:
-        return 'loading...'
+  return renderWithRequest(response, 
+    () => {
+      return <div>
+        <GamesList
+          games = {response.data}
+        />
+      </div>
     }
-  }
-
-  return (renderHome());
+  )
 }
 
 export default Home;

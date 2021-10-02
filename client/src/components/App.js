@@ -1,36 +1,45 @@
-import {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-import {fetchGames} from '../actions';
-import GamesList from './GamesList';
+import Home from './Home';
+import Product from './Product';
+import ShoppingCart from './ShoppingCart';
+import NotFound from './NotFound';
 
-function App() {
-
-  const shopping = useSelector((state) => state.shopping);
-  const dispatch = useDispatch();
-  const renderApp = () => {
-    
-    if(shopping.error){
-      return <div>{shopping.error}</div>
-    }
-
-    return (
-      <div>
-        <GamesList
-          games = {shopping.items}
-        />
-      </div>
-    )
-  }
+const App = () => {
   
-  // recupera todos os jogos do catálogo
-  useEffect(() => {
-    dispatch(fetchGames());
-  }, [dispatch]);
+  return(
+    <Router>
 
-  console.log(shopping);
+      <div>
 
-  return ( renderApp());
+        <nav>
+          navbar será aqui
+        </nav>
+      
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/product/:id">
+            <Product /> 
+          </Route>
+          <Route exact path="/cart">
+            <ShoppingCart />
+          </Route>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+
+      </div>
+
+    </Router>
+  )
 }
 
 export default App;

@@ -9,3 +9,5 @@
 export const FETCH_GAMES = "fetch_games";
 export const SET_ERROR   = "set_error";
 
+export const ADD_TO_CART = "add_to_cart";
+

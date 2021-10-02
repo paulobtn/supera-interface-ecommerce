@@ -1,9 +1,14 @@
 import { useParams } from 'react-router-dom';
-
 import useRequest from '../hooks/useRequest';
+import {useSelector, useDispatch} from 'react-redux';
+
 import {renderWithRequest} from './helpers';
+import {addToCart} from '../actions';
 
 const Product = () => {
+  
+  const shopping = useSelector((state) => state.shopping);
+  const dispatch = useDispatch();
 
   let {id} = useParams();
 
@@ -11,6 +16,8 @@ const Product = () => {
     url: `/api/games/${id}`,
     method: 'get'
   });
+
+  console.log(shopping);
   
   return renderWithRequest(response, () => {
 
@@ -19,11 +26,14 @@ const Product = () => {
     return(
       <div style={{padding: '1rem'}}>
         <img src={imagePath} alt={`${response.data.name}`}/>
+
         <div>id: {response.data.id}</div>
         <div>name: {response.data.name}</div>
         <div>price: {response.data.price}</div>
         <div>score: {response.data.score}</div>
-        <button>adicionar ao carrinho</button>
+
+        <button onClick={() => {dispatch(addToCart(1,response.data))} }>Adicionar ao carrinho</button>
+        <button>Comprar agora</button>
       </div>
     )
 

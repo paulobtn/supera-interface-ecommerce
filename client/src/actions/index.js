@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FETCH_GAMES, SET_ERROR } from "./types";
+import { FETCH_GAMES, SET_ERROR, ADD_TO_CART } from "./types";
 
 // informa o erro no redux store
 export const setError = (msg) => async (dispatch) => {
@@ -17,4 +17,8 @@ export const fetchGames = () => {
         dispatch(setError(err.response.statusText));
       });
   };
-} 
+}
+
+export const addToCart = (qtd, data) => async (dispatch) => {
+  dispatch({type: ADD_TO_CART, payload: {qtd, data}})
+};

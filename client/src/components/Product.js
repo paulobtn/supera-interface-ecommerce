@@ -11,14 +11,24 @@ const Product = () => {
     method: 'get'
   });
 
-  console.log(response);
-
   const renderProduct = () => {
+
     switch(response.status){
+
       case RESOLVED:
-        return (
-          <div>Jogo {id}</div>
-        )
+
+        let imagePath = `${process.env.PUBLIC_URL}/assets/${response.data.image}`;
+
+        return(
+          <div style={{padding: '1rem'}}>
+            <img src={imagePath} alt={`${response.data.name}`}/>
+            <div>id: {response.data.name.id}</div>
+            <div>name: {response.data.name}</div>
+            <div>price: {response.data.price}</div>
+            <div>score: {response.data.score}</div>
+          </div>
+        ) 
+
       case REJECTED:
         return response.error.response.statusText;
       default:

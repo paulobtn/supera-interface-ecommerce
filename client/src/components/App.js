@@ -22,18 +22,23 @@ const App = () => {
         </nav>
       
         <Switch>
+
           <Route exact path="/">
             <Home />
           </Route>
+
           <Route exact path="/product/:id">
             <Product /> 
           </Route>
+
           <Route exact path="/cart">
             <ShoppingCart />
           </Route>
+
           <Route path="*">
             <NotFound />
           </Route>
+
         </Switch>
 
       </div>

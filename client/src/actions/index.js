@@ -6,7 +6,7 @@ export const setError = (msg) => async (dispatch) => {
   dispatch({ type: SET_ERROR, payload: msg });
 };
 
-// dispatch de todos os jogos de products.json
+// recupera todos os jogos de products.json
 export const fetchGames = () => {
   return (dispatch) => {
     return axios.get("/api/games")

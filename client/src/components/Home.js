@@ -10,15 +10,16 @@ const Home = () => {
     method: 'get'
   });
 
-  return renderWithRequest(response, 
-    () => {
-      return <div>
-        <GamesList
-          games = {response.data}
-        />
+  return renderWithRequest(response, () => {
+    return (
+      <div>
+          <GamesList
+            games = {response.data}
+          />
       </div>
-    }
-  )
+    );
+  });
+
 }
 
 export default Home;

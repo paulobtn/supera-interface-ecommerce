@@ -17,7 +17,10 @@ const App = () => {
 
       <div>
         <nav>
-          navbar será aqui
+          <ul>
+            <li><Link to={'/'}>Home</Link></li>
+            <li><Link to={'/cart'}>Compras</Link></li>
+          </ul>
         </nav>
         <Switch>
 

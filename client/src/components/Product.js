@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 
 import useRequest from '../hooks/useRequest';
-import {IDLE, PENDING, RESOLVED, REJECTED} from '../hooks/useRequest';
+import {RESOLVED, REJECTED} from '../hooks/useRequest';
 
 const Product = () => {
 

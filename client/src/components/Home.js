@@ -1,33 +1,32 @@
-import {useEffect} from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-
-import {fetchGames} from '../actions';
 import GamesList from './GamesList';
+import useRequest from '../hooks/useRequest';
+import {RESOLVED, REJECTED} from '../hooks/useRequest';
 
 const Home = () => {
-  const shopping = useSelector((state) => state.shopping);
-  const dispatch = useDispatch();
-
-  // recupera todos os jogos do catálogo
-  useEffect(() => {
-    dispatch(fetchGames());
-  }, [dispatch]);
-
-  console.log(shopping);
-
-  //checa se existe erros
-  if(shopping.error){
-    return <div>{shopping.error}</div>
-  }
   
-  // Renderiza o catálogo de jogos
-  return (
-    <div>
-      <GamesList
-        games = {shopping.items}
-      />
-    </div>
-  );
+  let {response} = useRequest({
+    url: '/api/games',
+    method: 'get'
+  });
+
+  const renderHome = () => {
+    switch(response.status){
+      case RESOLVED:
+        return (
+          <div>
+            <GamesList
+              games = {response.data}
+            />
+          </div>
+        )
+      case REJECTED:
+        return response.error.response.statusText;
+      default:
+        return 'loading...'
+    }
+  }
+
+  return (renderHome());
 }
 
 export default Home;

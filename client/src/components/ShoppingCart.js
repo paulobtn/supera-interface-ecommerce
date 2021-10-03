@@ -7,7 +7,6 @@ import {toBRL} from './helpers';
 const ShoppingCart = () => {
   
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
 
   const renderComponent = () => {
 

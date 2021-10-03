@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
  * Podemos chamar por exemplo: 
  *    games.sort(compareProperty('score', DESC))
  */
-const compareProperty = (property, order) => {
+const compareProperty = (property, direction) => {
   return function (a,b) {
     let result;
 
@@ -17,16 +17,16 @@ const compareProperty = (property, order) => {
       result = 0;
     }
 
-    return result * order;
+    return result * parseInt(direction);
   } 
 }
 
 /* Componente que renderiza o catálogo de jogos */
-const GamesList = ({games, sortProperty, sortOrder}) => {
+const GamesList = ({games, sortProperty, sortDirection}) => {
   
   // ordena
-  if(sortProperty && sortOrder){
-    games.sort(compareProperty(sortProperty, sortOrder));
+  if(sortProperty && sortDirection){
+    games.sort(compareProperty(sortProperty, sortDirection));
   }
 
   return (

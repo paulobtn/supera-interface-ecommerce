@@ -1,28 +1,48 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import useRequest from '../hooks/useRequest';
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {useState} from 'react';
 
 import {renderWithRequest} from './helpers';
 import {addToCart} from '../actions';
 
 const Product = () => {
   
-  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const history = useHistory();
 
-  const handleAddToCart = (quantity, data) => {
-    dispatch(addToCart(quantity, data));
-  }
-
+  // quantidade de itens a adicionar no carrinho
+  const [qty, setQty] = useState(1);
+  
+  // id do produto vindo da URL
   let {id} = useParams();
-
+  
+  // realiza a requisição dos dados do jogo
   let {response} = useRequest({
     url: `/api/games/${id}`,
     method: 'get'
   });
 
-  console.log(cart);
+  // botão de adicionar no carrinho adicionar no carrinho
+  const handleAddToCart = (quantity, data) => {
+    dispatch(addToCart(quantity, data));
+    console.log(qty + " itens adicionados ao carrinho");
+  }
   
+  /* botão que adiciona no carrinho e redireciona para a 
+   * página de compra */
+  const handleBuyNow = (quantity, data) => {
+    handleAddToCart(quantity, data);
+    history.push("/cart");
+  }
+  
+  /* altera input da quantidade de itens */
+  const handleChange = (event) => {
+    let newQty = parseInt(event.target.value);
+    if(newQty < 0) newQty = 0;
+    setQty(newQty);
+  }
+
   return renderWithRequest(response, () => {
 
     let imagePath = `${process.env.PUBLIC_URL}/assets/${response.data.image}`;
@@ -36,12 +56,25 @@ const Product = () => {
         <div>price: {response.data.price}</div>
         <div>score: {response.data.score}</div>
 
-        <button onClick={() => {
-          handleAddToCart(1, response.data) 
-        }}>
-          Adicionar ao carrinho
-        </button>
-        <button>Comprar agora</button>
+        <div>
+          <label htmlFor="qty-items">
+            Quantidade
+          </label>
+            <input 
+              type="number"
+              name="qty-items"
+              onChange={handleChange}
+              value={qty}
+            />
+            <button onClick={() => {
+              handleAddToCart(qty, response.data)
+            }}> Adicionar ao carrinho </button>
+
+            <button onClick={() => {
+              handleBuyNow(qty, response.data)
+            }}> Comprar agora </button>
+          
+        </div>
       </div>
     )
 

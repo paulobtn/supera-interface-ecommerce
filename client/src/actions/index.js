@@ -16,6 +16,6 @@ import { ADD_TO_CART } from "./types";
 export const addToCart = (quantity, data) => {
   return{
     type: ADD_TO_CART,
-    payload: {quantity, data}
+    payload: {quantity: parseInt(quantity), data}
   }
 };

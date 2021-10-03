@@ -1,34 +1,26 @@
 import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import moxios from 'moxios';
 
-import {fetchGames} from '../../actions';
-import {initState} from '../../reducers/shoppingReducer';
-import { FETCH_GAMES } from "../../actions/types";
+import {addToCart} from '../../actions';
+import { ADD_TO_CART } from "../../actions/types";
+import {initState} from '../../reducers/cartReducer';
 
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
+const mockStore = configureMockStore();
 
 describe('Testa action', () => {
 
-  beforeEach(() => {
-    moxios.install();
-  });
-
-  afterEach(() => {
-    moxios.uninstall();
-  });
-
-  it('FETCH_GAMES', () =>{
-  
+  it('ADD_TO_CART', () => {
     const store = mockStore(initState);
-
-    moxios.stubRequest('/api/games', { status: 200, response: {} });
-
-    return store.dispatch(fetchGames()).then(() => {
-      const actions = store.getActions();
-      expect(actions[0].type).toEqual(FETCH_GAMES);
-    });
-
+    const item = {
+      data: {
+        id: 99,
+        name: "Call Of Duty WWII",
+        price: 249.99,
+        score: 205,
+        image: "call-of-duty-wwii.png"
+      }
+    };
+    store.dispatch(addToCart(1,item));
+    expect(store.getActions()[0].type).toEqual(ADD_TO_CART);
   });
+
 });

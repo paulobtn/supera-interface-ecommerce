@@ -1,27 +1,12 @@
-import {FETCH_GAMES, SET_ERROR, ADD_TO_CART} from '../actions/types';
+import { ADD_TO_CART } from '../actions/types';
 
 export const initState = { //exportando para fins de teste
-    // items: [],
     shoppingCart:[],
-    // error: null
 }
 
-const shoppingReducer = (state = initState, action) => {
+const cartReducer = (state = initState, action) => {
 
     switch(action.type){
-        case FETCH_GAMES:
-        // Adiciona todos os jogos no campo items do
-        // redux store
-            return {
-              ...state,
-              error: null,
-              items: action.payload
-            }
-        case SET_ERROR:
-          return {
-            ...state,
-            error: action.payload
-          }
         case ADD_TO_CART:
           
           // copia o carrinho de compras que já existia
@@ -48,4 +33,4 @@ const shoppingReducer = (state = initState, action) => {
     }
 }
 
-export default shoppingReducer;
+export default cartReducer;

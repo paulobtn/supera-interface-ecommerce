@@ -7,8 +7,12 @@ import {addToCart} from '../actions';
 
 const Product = () => {
   
-  const shopping = useSelector((state) => state.shopping);
+  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+
+  const handleAddToCart = (qtd, data) => {
+    dispatch(addToCart(qtd, data));
+  }
 
   let {id} = useParams();
 
@@ -17,7 +21,7 @@ const Product = () => {
     method: 'get'
   });
 
-  console.log(shopping);
+  console.log(cart);
   
   return renderWithRequest(response, () => {
 
@@ -32,7 +36,11 @@ const Product = () => {
         <div>price: {response.data.price}</div>
         <div>score: {response.data.score}</div>
 
-        <button onClick={() => {dispatch(addToCart(1,response.data))} }>Adicionar ao carrinho</button>
+        <button onClick={() => {
+          handleAddToCart(1, response.data) 
+        }}>
+          Adicionar ao carrinho
+        </button>
         <button>Comprar agora</button>
       </div>
     )

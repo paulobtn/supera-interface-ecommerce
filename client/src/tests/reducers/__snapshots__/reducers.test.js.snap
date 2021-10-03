@@ -1,32 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testa reducer shoppingReducer retornando o estado com os jogos carregados 1`] = `
+exports[`Testa reducer cartReducer retornando estado correto após adicionar um jogo 1`] = `
 Object {
-  "error": null,
-  "items": Array [
+  "shoppingCart": Array [
     Object {
-      "id": 201,
-      "image": "call-of-duty-infinite-warfare.png",
-      "name": "Call Of Duty Infinite Warfare",
-      "price": 49.99,
-      "score": 80,
-    },
-    Object {
-      "id": 102,
-      "image": "the-witcher-iii-wild-hunt.png",
-      "name": "The Witcher III Wild Hunt",
-      "price": 119.5,
-      "score": 250,
+      "data": Object {
+        "id": 201,
+        "image": "call-of-duty-infinite-warfare.png",
+        "name": "Call Of Duty Infinite Warfare",
+        "price": 49.99,
+        "score": 80,
+      },
+      "qtd": 1,
     },
   ],
-  "shoppingCart": Array [],
 }
 `;
 
-exports[`Testa reducer shoppingReducer returnando o estado inicial 1`] = `
+exports[`Testa reducer cartReducer retornando o estado inicial 1`] = `
 Object {
-  "error": null,
-  "items": Array [],
   "shoppingCart": Array [],
 }
 `;

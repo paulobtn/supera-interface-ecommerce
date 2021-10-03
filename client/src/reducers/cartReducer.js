@@ -48,7 +48,7 @@ const stateAddToCart = (state, action) => {
 
   // atualiza fretes
   newState.shipping += quantity*shippingValue;
-  if(newState.subtotal > 250){
+  if(newState.subtotal > freeShippingValue){
     newState.freeShipping = true;
   }
 

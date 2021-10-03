@@ -96,11 +96,15 @@ const stateAddToCart = (state, action) => {
 
 // stateRemoveFromCart retorna o novo estado ao remover o produto do carrinho
 const stateRemoveFromCart = (state, action) => {
+
+  // deep copy do state
   let newState = JSON.parse(JSON.stringify(state));
   let {id} = action.payload;
-  console.log(newState.shoppingCart);
-  newState.shoppingCart = newState.shoppingCart.filter((entry) => (entry.data.id !== id));
 
+  // cópia do array sem o elemento a ser removido
+  newState.shoppingCart = newState.shoppingCart.filter((entry) => (entry.data.id !== id));
+  
+  // recalcula outros estados
   newState.quantity     = getQuantity(newState);
   newState.subtotal     = getSubtotal(newState);
   newState.shipping     = getShipping(newState);

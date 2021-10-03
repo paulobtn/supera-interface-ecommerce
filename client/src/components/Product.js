@@ -10,8 +10,8 @@ const Product = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const handleAddToCart = (qtd, data) => {
-    dispatch(addToCart(qtd, data));
+  const handleAddToCart = (quantity, data) => {
+    dispatch(addToCart(quantity, data));
   }
 
   let {id} = useParams();

@@ -26,7 +26,7 @@ describe('Testa reducer', () => {
       expect (cartReducer(initState, {
         type: ADD_TO_CART,
         payload: {
-          qtd: 1,
+          quantity: 1,
           data: game
         }
       })).toMatchSnapshot();  

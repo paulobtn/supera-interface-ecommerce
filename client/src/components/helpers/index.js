@@ -14,3 +14,17 @@ export const renderWithRequest = (response, component) => {
         return 'loading...'
     }
 }
+
+/* Converte um valor dado para reais */
+export const toBRL = (val) => {
+
+  let locale = 'pt-BR';
+  let localeOpts = {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+    style: 'currency',
+    currency: 'BRL'
+  };
+
+  return val.toLocaleString(locale,localeOpts);
+}

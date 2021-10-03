@@ -2,9 +2,9 @@
 
 exports[`Testa reducer cartReducer retornando estado correto após adicionar um jogo 1`] = `
 Object {
-  "freeShipping": false,
-  "quantity": 1,
-  "shipping": 10,
+  "freeShipping": true,
+  "quantity": 10,
+  "shipping": 100,
   "shoppingCart": Array [
     Object {
       "data": Object {
@@ -14,11 +14,22 @@ Object {
         "price": 49.99,
         "score": 80,
       },
-      "quantity": 1,
+      "quantity": 10,
     },
   ],
-  "subtotal": 49.99,
-  "total": 59.99,
+  "subtotal": 499.90000000000003,
+  "total": 499.90000000000003,
+}
+`;
+
+exports[`Testa reducer cartReducer retornando estado correto após remover um jogo 1`] = `
+Object {
+  "freeShipping": false,
+  "quantity": 0,
+  "shipping": 0,
+  "shoppingCart": Array [],
+  "subtotal": 0,
+  "total": 0,
 }
 `;
 

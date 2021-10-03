@@ -15,6 +15,8 @@ const Home = () => {
       <div>
           <GamesList
             games = {response.data}
+            sortProperty='price'
+            sortOrder = {-1}
           />
       </div>
     );

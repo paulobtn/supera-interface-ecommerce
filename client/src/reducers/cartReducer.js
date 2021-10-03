@@ -3,7 +3,7 @@ import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/types';
 const freeShippingValue = 250;
 const shippingValue = 10;
 
-//exportando para fins de teste
+// estado inicial exportado para fins de teste
 export const initState = { 
   shoppingCart:[], //[{quantity, item{id,name,price,score,image}}]
   quantity: 0,
@@ -13,11 +13,11 @@ export const initState = {
   total: 0
 }
 
-/* Funções auxiliares para obter os estados internos quantity, subtotal, shipping, freeShipping
- * e total baseados num novo estado state com um array shoppingCart preenchido.
+/* Funções auxiliares para obter os estados internos quantity, subtotal, shipping,
+ * freeShipping e total baseados num novo estado com o array shoppingCart preenchido.
  * Essas funções são utilizadas na obtenção do estado total. */
 
-// obter a nova quantidade total 
+// obter quantidade total 
 const getQuantity = (state) => {
   let qty = 0;
   for(let i = 0; i < state.shoppingCart.length ; i++){
@@ -26,7 +26,7 @@ const getQuantity = (state) => {
   return qty;
 }
 
-// obter novo valor sem o frete
+// obter valor sem o frete
 const getSubtotal = (state) => {
   let subtotal = 0;
   for(let i = 0; i < state.shoppingCart.length ; i++){
@@ -35,17 +35,17 @@ const getSubtotal = (state) => {
   return subtotal;
 }
 
-// obter novo valor do frete
+// obter valor do frete
 const getShipping = (state) => {
   return state.quantity*shippingValue;
 }
 
-// verificar se o novo estado está isento de frete
+// verificar se o estado está isento de frete
 const getFreeShipping = (state) => {
   return state.subtotal > freeShippingValue ? true: false;
 }
 
-// obter novo valor total
+// obter valor total
 const getTotal = (state) => {
   let total = getSubtotal(state);
   if(!getFreeShipping(state)){

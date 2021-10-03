@@ -6,15 +6,15 @@ const GamesList = ({games}) => {
     games.map( (item) => {
       let imagePath = `${process.env.PUBLIC_URL}/assets/${item.image}`;
       return (
-        <Link key={item.id} to={`/item/${item.id}`}>
-          <div style={{padding: '1rem'}}>
-            <img src={imagePath} alt={`${item.name}`}/>
+          <div key={item.id} style={{padding: '1rem'}}>
+            <Link to={`/item/${item.id}`}>
+              <img src={imagePath} alt={`${item.name}`}/>
+            </Link>
             <div>id: {item.id}</div>
             <div>name: {item.name}</div>
             <div>price: {item.price}</div>
             <div>score: {item.score}</div>
           </div>
-        </Link>
       )
     })
   )

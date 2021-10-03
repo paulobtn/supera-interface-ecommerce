@@ -22,6 +22,7 @@ const ShoppingCart = () => {
           )
         })}
        
+        <div>quantidade: {cart.quantity}</div>
         <div>Subtotal: {toBRL(cart.subtotal)}</div>
         <div>Frete: {toBRL(cart.shipping)}</div>
         <div>Isento de frete: {cart.freeShipping ? 'sim' : 'não'}</div>

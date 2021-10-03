@@ -1,4 +1,4 @@
-import { ADD_TO_CART } from '../actions/types';
+import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/types';
 
 const freeShippingValue = 250;
 const shippingValue = 10;
@@ -13,8 +13,50 @@ export const initState = {
   total: 0
 }
 
-/* stateAddToCart retorna o novo estado ao adicionar o produto ao
- * carrinho */
+/* Funções auxiliares para obter os estados internos quantity, subtotal, shipping, freeShipping
+ * e total baseados num novo estado state com um array shoppingCart preenchido.
+ * Essas funções são utilizadas na obtenção do estado total. */
+
+// obter a nova quantidade total 
+const getQuantity = (state) => {
+  let qty = 0;
+  for(let i = 0; i < state.shoppingCart.length ; i++){
+    qty += state.shoppingCart[i].quantity;
+  }
+  return qty;
+}
+
+// obter novo valor sem o frete
+const getSubtotal = (state) => {
+  let subtotal = 0;
+  for(let i = 0; i < state.shoppingCart.length ; i++){
+    subtotal += state.shoppingCart[i].quantity * state.shoppingCart[i].data.price;
+  }
+  return subtotal;
+}
+
+// obter novo valor do frete
+const getShipping = (state) => {
+  return state.quantity*shippingValue;
+}
+
+// verificar se o novo estado está isento de frete
+const getFreeShipping = (state) => {
+  return state.subtotal > freeShippingValue ? true: false;
+}
+
+// obter novo valor total
+const getTotal = (state) => {
+  let total = getSubtotal(state);
+  if(!getFreeShipping(state)){
+    total += getShipping(state);
+  }
+  return total; 
+}
+
+/* Funções para obter o novo estado que será retornado pelo reducer */
+
+// stateAddToCart retorna o novo estado ao adicionar o produto ao carrinho 
 const stateAddToCart = (state, action) => {
 
   /* dado e quantidade do payload para não termos que escrever
@@ -41,33 +83,46 @@ const stateAddToCart = (state, action) => {
   } else{
     newState.shoppingCart = newState.shoppingCart.concat(action.payload);
   }
-    
-  // atualiza quantidade e subtotal
-  newState.quantity += quantity;
-  newState.subtotal += data.price * quantity;
+  
+  // atualiza os outros estados
+  newState.quantity     = getQuantity(newState);
+  newState.subtotal     = getSubtotal(newState);
+  newState.shipping     = getShipping(newState);
+  newState.freeShipping = getFreeShipping(newState);
+  newState.total        = getTotal(newState);
 
-  // atualiza fretes
-  newState.shipping += quantity*shippingValue;
-  if(newState.subtotal > freeShippingValue){
-    newState.freeShipping = true;
-  }
-
-  // atualiza total
-  newState.total = newState.subtotal;
-  if(!newState.freeShipping){
-    newState.total += newState.shipping;
-  }
   return newState;
 }
 
+// stateRemoveFromCart retorna o novo estado ao remover o produto do carrinho
+const stateRemoveFromCart = (state, action) => {
+  let newState = JSON.parse(JSON.stringify(state));
+  let {id} = action.payload;
+  console.log(newState.shoppingCart);
+  newState.shoppingCart = newState.shoppingCart.filter((entry) => (entry.data.id !== id));
+
+  newState.quantity     = getQuantity(newState);
+  newState.subtotal     = getSubtotal(newState);
+  newState.shipping     = getShipping(newState);
+  newState.freeShipping = getFreeShipping(newState);
+  newState.total        = getTotal(newState);
+  
+  return newState;
+
+}
+
+/* Reducer do carrinho de compras */
+
 const cartReducer = (state = initState, action) => {
 
-    switch(action.type){
-        case ADD_TO_CART:
-          return stateAddToCart(state, action);
-        default:
-            return state;
-    }
+  switch(action.type){
+    case ADD_TO_CART:
+      return stateAddToCart(state, action);
+    case REMOVE_FROM_CART:
+      return stateRemoveFromCart(state, action);         
+    default:
+        return state;
+  }
 }
 
 export default cartReducer;

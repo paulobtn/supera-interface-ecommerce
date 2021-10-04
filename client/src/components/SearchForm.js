@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import {ReactComponent as SearchIcon} from '../assets/magnifying-glass.svg';
+
 const SearchForm = () => {
 
   let [searchTerm, setSearchTerm] = useState('');
@@ -18,10 +20,26 @@ const SearchForm = () => {
   }
 
   return (
-    <form role="search" onSubmit={handleSubmit}>
-      <input type="text" value={searchTerm} onChange={handleChange} />
-      <input type="submit" value="pesquisar" />
+
+    <form className="search" role="search" onSubmit={handleSubmit}>
+      <input 
+        type="text"
+        value={searchTerm}
+        onChange={handleChange} 
+        className="search__input"
+        placeholder="Pesquisar jogo"
+      />
+      <button 
+        className="search__button"
+        type="submit"
+      >
+      <SearchIcon 
+        alt="lupa"
+        className="search__icon"
+      />
+      </button>
     </form>
+
   )
 }
 

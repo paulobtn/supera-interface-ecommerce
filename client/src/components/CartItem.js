@@ -12,7 +12,8 @@ const CartItem = ({ item }) => {
     dispatch(removeFromCart(id));
   }
 
-  let imagePath = `${process.env.PUBLIC_URL}/assets/${item.data.image}`;
+  let imagePath = require(`../assets/${item.data.image}`).default;
+
   return (
       <div style={{padding: '1rem'}}>
         <Link to={`/item/${item.data.id}`}>

@@ -1,33 +1,23 @@
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
+import Header from './Header';
 import Home from './Home';
 import Product from './Product';
 import ShoppingCart from './ShoppingCart';
 import NotFound from './NotFound';
-import SearchForm from './SearchForm';
-
 
 const App = () => {
 
   return(
     <Router>
 
-        <div> 
-
-          <SearchForm />
-
-          <nav>
-            <form action=""></form>
-            <ul>
-              <li><Link to={'/'}>Home</Link></li>
-              <li><Link to={'/cart'}>Compras</Link></li>
-            </ul>
-          </nav>
+      <div className="container"> 
+          
+        <Header />
 
         <Switch>
 

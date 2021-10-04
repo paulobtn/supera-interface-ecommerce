@@ -32,7 +32,7 @@ const GamesList = ({games, sortProperty, sortDirection}) => {
 
   return (
     games.map( (item) => {
-      let imagePath = `${process.env.PUBLIC_URL}/assets/${item.image}`;
+      let imagePath = require(`../assets/${item.image}`).default;
       return (
           <div key={item.id} style={{padding: '1rem'}}>
             <Link to={`/item/${item.id}`}>

@@ -45,7 +45,7 @@ const Product = () => {
 
   return renderWithRequest(response, () => {
 
-    let imagePath = `${process.env.PUBLIC_URL}/assets/${response.data.image}`;
+    let imagePath = require(`../assets/${response.data.image}`).default;
 
     return(
       <div style={{padding: '1rem'}}>

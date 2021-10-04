@@ -30,10 +30,6 @@ const getDirectionFromValue = (value) => {
   }
 }
 
-// function useQuery() {
-  // return new URLSearchParams(useLocation().search);
-// }
-
 const Home = () => {
   
   // valor do select list que gerencia a ordenação do catálogo

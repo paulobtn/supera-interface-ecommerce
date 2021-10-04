@@ -11,23 +11,21 @@ router.get('/api/games', async (req, res) => {
 
   let games = await GamesRepo.find();
   
-  // verifica se há uma query na url
   let query = req.query.q;
-  if(query){
-    query = query.toLowerCase();
-  }
 
   if(games){
     
+    // filtra por query caso exista
     if(query){
+      query = query.toLowerCase();
       games = games.filter(
         (game) => game.name.toLowerCase().includes(query)
       );
     }
 
     res.send(games);
-  } 
-  else{
+
+  } else{
     res.sendStatus(404);
   }
 

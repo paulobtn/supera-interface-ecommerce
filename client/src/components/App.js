@@ -24,7 +24,7 @@ const App = () => {
         </nav>
         <Switch>
 
-          <Route exact path="/">
+          <Route path="/">
             <Home />
           </Route>
 

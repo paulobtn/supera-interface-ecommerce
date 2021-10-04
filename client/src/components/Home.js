@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import GamesList from './GamesList';
 import useRequest from '../hooks/useRequest';
+import useQuery from '../hooks/useQuery';
 
 import {renderWithRequest} from './helpers';
 
@@ -29,14 +30,28 @@ const getDirectionFromValue = (value) => {
   }
 }
 
+// function useQuery() {
+  // return new URLSearchParams(useLocation().search);
+// }
+
 const Home = () => {
   
   // valor do select list que gerencia a ordenação do catálogo
   let [sortValue, setSortValue] = useState("price-asc");
   
+  // endpoint para buscar todos os jogos
+  let endpoint = '/api/games';
+
+  /* verifica a existência da query string ?q= para filtrar os
+    resultados. Se existir, atualiza o endpoint */
+  let query = useQuery().get('q');
+  if(query){
+    endpoint += `?q=${query}`;
+  }
+
   // realiza a requisição de todos os jogos
   let {response} = useRequest({
-    url: '/api/games',
+    url: endpoint,
     method: 'get'
   });
   

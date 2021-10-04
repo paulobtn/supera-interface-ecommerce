@@ -9,11 +9,25 @@ const router = express.Router();
 router.get('/api/games', async (req, res) => {
   // recupera todos os jogos
 
-  const games = await GamesRepo.find();
+  let games = await GamesRepo.find();
   
+  // verifica se há uma query na url
+  let query = req.query.q;
+  if(query){
+    query = query.toLowerCase();
+  }
+
   if(games){
+    
+    if(query){
+      games = games.filter(
+        (game) => game.name.toLowerCase().includes(query)
+      );
+    }
+
     res.send(games);
-  } else{
+  } 
+  else{
     res.sendStatus(404);
   }
 

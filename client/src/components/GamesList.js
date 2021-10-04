@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { toBRL } from "./helpers";
 
 /* Retorna uma função de comparação a ser usada pela função sort.
  * A propriedade do array de objects e a ordem é customizável.
@@ -39,7 +40,7 @@ const GamesList = ({games, sortProperty, sortDirection}) => {
             </Link>
             <div>id: {item.id}</div>
             <div>name: {item.name}</div>
-            <div>price: {item.price}</div>
+            <div>price: {toBRL(item.price)}</div>
             <div>score: {item.score}</div>
           </div>
       )

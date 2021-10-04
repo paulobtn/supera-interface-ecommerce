@@ -1,0 +1,26 @@
+.header {
+    font-size: 1.6rem;
+    height: 8rem;
+    background-color: #ffffff;
+    border-bottom: 2px solid #f4f3f3;
+
+}
+
+.header__container{
+  margin: auto;
+  max-width: 120rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+    margin-left: 2rem;
+}
+
+.logo__link{
+    text-decoration: none;
+    color: #454545;
+    font-weight: 400;
+    font-size: 2.5rem
+}

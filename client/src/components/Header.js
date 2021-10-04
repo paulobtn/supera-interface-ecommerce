@@ -1,3 +1,5 @@
+import './styles/Header.css';
+
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 
@@ -10,7 +12,7 @@ const Header = () => {
 
   return (
     <header className="header">
-
+      <div className="header__container">
         <div className="logo">
           <Link to={'/'} className="logo__link" > LOGO </Link>
         </div>
@@ -30,6 +32,7 @@ const Header = () => {
               </Link>
             </div>
         </nav>
+      </div>
 
     </header>
   )

@@ -1,10 +1,12 @@
+import {defineState} from 'redux-localstore';
+
 import { ADD_TO_CART, REMOVE_FROM_CART } from '../actions/types';
 
 const freeShippingValue = 250;
 const shippingValue = 10;
 
 // estado inicial exportado para fins de teste
-export const initState = { 
+export const defaultState = { 
   shoppingCart:[], //[{quantity, item{id,name,price,score,image}}]
   quantity: 0,
   subtotal: 0,
@@ -12,6 +14,9 @@ export const initState = {
   freeShipping: false,
   total: 0
 }
+
+// coleta estado inicial do localStorage caso exista
+const initState = defineState(defaultState)('cart');
 
 /* Funções auxiliares para obter os estados internos quantity, subtotal, shipping,
  * freeShipping e total baseados num novo estado com o array shoppingCart preenchido.

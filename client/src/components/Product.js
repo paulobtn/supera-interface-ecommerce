@@ -16,7 +16,7 @@ const Product = () => {
   
   // id do produto vindo da URL
   let {id} = useParams();
-  
+
   // realiza a requisição dos dados do jogo
   let {response} = useRequest({
     url: `/api/games/${id}`,

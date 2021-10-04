@@ -3,15 +3,17 @@
     height: 8rem;
     background-color: #ffffff;
     border-bottom: 2px solid #f4f3f3;
-
+    display: flex;
+    align-items: center;
 }
 
 .header__container{
-  margin: auto;
-  max-width: 120rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    flex: 1;
+    margin: auto;
+    max-width: 120rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -24,3 +26,54 @@
     font-weight: 400;
     font-size: 2.5rem
 }
+
+.cart-nav{
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+}
+
+.cart-nav > * {
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.cart-nav__link{
+    text_decoration:none;
+}
+
+.cart-nav__icon-box {
+  position: relative;
+}
+
+.cart-nav__icon{
+    width: 5rem;
+    height: 5rem;
+    fill: #454545;
+    transition: all .2s;
+}
+
+.cart-nav__notification{
+
+    font-size: 1.3rem;
+    height: 2.2rem;
+    width: 2.2rem;
+    border-radius: 50%;
+    background-color: #00bb22;
+    color: #fff;
+    position: absolute;
+    top: 0.3rem;
+    right: 1.6rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart-nav__icon:hover{
+  fill: #00bb33;
+}
+

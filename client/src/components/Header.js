@@ -3,7 +3,7 @@ import './styles/Header.css';
 import {Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 
-import {ReactComponent as CartIcon } from '../assets/cart-icon.svg';
+import {ReactComponent as CartIcon } from '../assets/cart-icon-2.svg';
 import SearchForm from './SearchForm';
 
 const Header = () => {
@@ -24,8 +24,8 @@ const Header = () => {
                 
               <Link to={'/cart'} className='cart-nav__link'>
                 <CartIcon
-                alt="carrinho"
-                className="cart-nav__icon"
+                  alt="carrinho"
+                  className="cart-nav__icon"
                 />
 
                 <span className="cart-nav__notification">{cart.quantity}</span>

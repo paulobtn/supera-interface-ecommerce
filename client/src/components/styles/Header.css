@@ -73,7 +73,7 @@
     align-items: center;
 }
 
-.cart-nav__icon:hover{
+.cart-nav:hover .cart-nav__icon{
   fill: #00bb33;
 }
 

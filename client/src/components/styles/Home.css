@@ -25,4 +25,9 @@
   color: #454545
 }
 
-
+.catalogue__games{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-gap: 1.2rem;
+}

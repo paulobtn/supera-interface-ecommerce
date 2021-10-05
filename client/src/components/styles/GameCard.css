@@ -1,7 +1,11 @@
 .catalogue__card{
+  align-self: center;
+  justify-self: center;
+
+
   background-color: white;
-  margin: 1rem;
-  padding: 1.3rem;
+  padding: 2rem 5rem;
+  min-width: 25rem;
   border: 2px solid #f4f3f3;
   border-radius: 1rem; 
   display: flex;
@@ -9,3 +13,5 @@
   align-items: center;
   flex-direction: column;
 }
+
+

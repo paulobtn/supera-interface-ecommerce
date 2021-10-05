@@ -65,7 +65,7 @@ const Home = () => {
 
   return renderWithRequest(response, () => {
     return (
-      <div className="catalogue">
+      <section className="catalogue">
         <div className="catalogue__content">
           <div className="catalogue__sort">
             <label>Ordenar por: </label>
@@ -93,7 +93,7 @@ const Home = () => {
             />
           </div>
         </div>
-      </div>
+      </section>
     );
   });
 

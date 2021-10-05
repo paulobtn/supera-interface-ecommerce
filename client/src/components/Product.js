@@ -48,34 +48,54 @@ const Product = () => {
     let imagePath = require(`../assets/${response.data.image}`).default;
 
     return(
-      <div style={{padding: '1rem'}}>
-        <img src={imagePath} alt={`${response.data.name}`}/>
+      <session className="product">
+        <div className="product__content">
 
-        <div>id: {response.data.id}</div>
-        <div>name: {response.data.name}</div>
-        <div>price: {response.data.price}</div>
-        <div>score: {response.data.score}</div>
+          <img 
+            src={imagePath} 
+            alt={`${response.data.name}`}
+            className="product__image"
+          />
+          
+          <div className="product__text">
+            <h1 className="product__name">{response.data.name}</h1>
+            <h2 className="Product_price">{response.data.price}</h2>
+            <p className="Product_description">
+              Lorem ipsum dolor sit amet. Sit nisi aliquam quo iure dolorem
+              eos autem temporibus in enim enim eum quis beatae aut fuga nihil
+              eos dolorem dolores. Ut tenetur placeat et reiciendis commodi
+              aut nihil autem a reprehenderit incidunt! Est consequuntur nobis
+              ex asperiores rerum ut accusamus aperiam vel dolores nostrum et
+              architecto vel amet enim.
+            </p>
+          </div>
 
-        <div>
-          <label htmlFor="qty-items">
-            Quantidade
-          </label>
+          <div className="product__purchase">
+
+            <label 
+              htmlFor="qty-items">
+              Quantidade
+            </label>
+
             <input 
               type="number"
               name="qty-items"
               onChange={handleChange}
               value={qty}
             />
-            <button onClick={() => {
-              handleAddToCart(qty, response.data)
-            }}> Adicionar ao carrinho </button>
 
             <button onClick={() => {
               handleBuyNow(qty, response.data)
             }}> Comprar agora </button>
-          
+
+            <button onClick={() => {
+              handleAddToCart(qty, response.data)
+            }}> Adicionar ao carrinho </button>
+
+          </div>
+
         </div>
-      </div>
+      </session>
     )
 
   });

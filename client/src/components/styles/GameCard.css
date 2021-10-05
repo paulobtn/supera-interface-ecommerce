@@ -4,12 +4,13 @@
 
 
   background-color: white;
-  /* padding: 3rem 5rem; */
   padding-top: 3rem;
   padding-bottom: 2rem;
   width: 25rem;
   height: 30rem;
-  border: 2px solid #f4f3f3;
+  /* border: 2px solid #f4f3f3; */
+  /* border: 2px solid #eaeaea; */
+  border: 2px solid #f1f2f2;
   border-radius: 1rem; 
   text-decoration: none;
   color: #454545;

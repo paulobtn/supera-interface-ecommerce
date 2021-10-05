@@ -90,11 +90,13 @@ const Home = () => {
               name="sort-select"
             />
           </div>
-          <GamesList
-            games = {response.data}
-            sortProperty  = {getPropertyFromValue(sortOption.value)}
-            sortDirection = {getDirectionFromValue(sortOption.value)}
-          />
+          <div className="catalogue__games">
+            <GamesList
+              games = {response.data}
+              sortProperty  = {getPropertyFromValue(sortOption.value)}
+              sortDirection = {getDirectionFromValue(sortOption.value)}
+            />
+          </div>
         </div>
       </div>
     );

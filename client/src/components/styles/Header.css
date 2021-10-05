@@ -10,7 +10,7 @@
 .header__content{
     flex: 1;
     margin: auto;
-    max-width: 120rem;
+    max-width: 100rem;
     display: flex;
     justify-content: space-between;
     align-items: center;

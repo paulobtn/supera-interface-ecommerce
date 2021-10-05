@@ -1,5 +1,28 @@
+.catalogue {
+    font-size: 1.6rem;
+    /* display: flex; */
+    /* align-items: center; */
+}
+
+.catalogue__content{
+    flex: 1;
+    margin: auto;
+    max-width: 100rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.catalogue__sort{
+  align-self: flex-end;
+  margin: 2rem;
+}
+
 .catalogue__sort > label {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: #454545
 }
+
+

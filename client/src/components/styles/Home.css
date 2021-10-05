@@ -1,12 +1,10 @@
 .catalogue {
     font-size: 1.6rem;
-    /* display: flex; */
-    /* align-items: center; */
 }
 
 .catalogue__content{
     flex: 1;
-    margin: auto;
+    margin: 1rem auto;
     max-width: 100rem;
     display: flex;
     flex-direction: column;
@@ -28,6 +26,7 @@
 .catalogue__games{
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); */
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1.2rem;
 }

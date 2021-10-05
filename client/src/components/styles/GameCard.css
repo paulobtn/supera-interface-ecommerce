@@ -4,14 +4,40 @@
 
 
   background-color: white;
-  padding: 2rem 5rem;
-  min-width: 25rem;
+  /* padding: 3rem 5rem; */
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  width: 25rem;
+  height: 30rem;
   border: 2px solid #f4f3f3;
   border-radius: 1rem; 
+  text-decoration: none;
+  color: #454545;
+
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: all .2s;
 }
 
+.catalogue__card:hover{
+  width: 27rem;
+}
 
+.catalogue__name{
+  font-weight: 400;
+  font-size: 1.4rem;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.catalogue__price{
+  font-weight: 600;
+  font-size: 1.7rem;
+
+  
+}

@@ -8,19 +8,17 @@ const GameCard = ({item}) => {
   let imagePath = require(`../assets/${item.image}`).default;
 
   return (
-    <div className="catalogue__card" >
       <Link 
         to={`/item/${item.id}`}
-        className="catalogue__link"
+        className="catalogue__card"
       >
         <img 
           src={imagePath} alt={`${item.name}`}
           className="catalogue__image"
         />
+        <div className="catalogue__name">{item.name}</div>
+        <div className="catalogue__price">{toBRL(item.price)}</div>
       </Link>
-      <div className="catalogue__name">{item.name}</div>
-      <div className="catalogue__price">{toBRL(item.price)}</div>
-    </div>
   )
 }
 

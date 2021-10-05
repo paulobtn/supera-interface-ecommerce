@@ -4,7 +4,6 @@
 }
 
 .catalogue__content{
-    flex: 1;
     margin: 1rem auto;
     max-width: 100rem;
     display: flex;

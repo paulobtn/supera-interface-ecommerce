@@ -1,10 +1,14 @@
+import "./styles/Product.css"
+
 import { useParams, useHistory } from 'react-router-dom';
 import useRequest from '../hooks/useRequest';
 import {useDispatch} from 'react-redux';
 import {useState} from 'react';
 
 import {renderWithRequest} from './helpers';
+import {toBRL} from './helpers';
 import {addToCart} from '../actions';
+
 
 const Product = () => {
   
@@ -48,7 +52,7 @@ const Product = () => {
     let imagePath = require(`../assets/${response.data.image}`).default;
 
     return(
-      <session className="product">
+      <section className="product">
         <div className="product__content">
 
           <img 
@@ -59,8 +63,8 @@ const Product = () => {
           
           <div className="product__text">
             <h1 className="product__name">{response.data.name}</h1>
-            <h2 className="Product_price">{response.data.price}</h2>
-            <p className="Product_description">
+            <h2 className="product__price">{toBRL(response.data.price)}</h2>
+            <p className="product__description">
               Lorem ipsum dolor sit amet. Sit nisi aliquam quo iure dolorem
               eos autem temporibus in enim enim eum quis beatae aut fuga nihil
               eos dolorem dolores. Ut tenetur placeat et reiciendis commodi
@@ -71,31 +75,39 @@ const Product = () => {
           </div>
 
           <div className="product__purchase">
+            
+            <div className="product__qty">
+              <label 
+                htmlFor="qty-items">
+                Quantidade
+              </label>
+              <input 
+                type="number"
+                name="qty-items"
+                onChange={handleChange}
+                value={qty}
+              />
+            </div>
 
-            <label 
-              htmlFor="qty-items">
-              Quantidade
-            </label>
+            <button 
+              onClick={() => {
+                  handleBuyNow(qty, response.data)
+                }
+              }
+              className="product__buy-now" 
+            > Comprar agora </button>
 
-            <input 
-              type="number"
-              name="qty-items"
-              onChange={handleChange}
-              value={qty}
-            />
-
-            <button onClick={() => {
-              handleBuyNow(qty, response.data)
-            }}> Comprar agora </button>
-
-            <button onClick={() => {
-              handleAddToCart(qty, response.data)
-            }}> Adicionar ao carrinho </button>
+            <button 
+              onClick={() => {
+                handleAddToCart(qty, response.data)
+              }}
+              className="product__add-to-cart" 
+            > Adicionar ao carrinho </button>
 
           </div>
 
         </div>
-      </session>
+      </section>
     )
 
   });

@@ -28,3 +28,16 @@ body {
     min-height: 100vh;
 }
 
+.blue-indicator{}
+.blue-indicator:before{
+  content: "";
+  height: .5rem;
+  position: absolute;
+  left: 1px;
+  right: 0;
+  bottom: .2rem;
+  width: .6rem;
+  height: 80%;
+  background: #2684ff;
+  border-radius: 5rem;
+}

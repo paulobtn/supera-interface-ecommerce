@@ -40,10 +40,16 @@ const Product = () => {
     history.push("/cart");
   }
   
-  /* altera input da quantidade de itens */
+  /* altera input da quantidade de itens
+   * só pode de 1 a 99
+   * */
   const handleChange = (event) => {
-    let newQty = parseInt(event.target.value);
-    if(newQty < 0) newQty = 0;
+    let newQty = event.target.value;
+    if(newQty.length > 2){
+      newQty = newQty.slice(0,2);
+    }
+    newQty = parseInt(newQty);
+    if(newQty < 1) newQty = 1;
     setQty(newQty);
   }
 
@@ -63,7 +69,7 @@ const Product = () => {
           
           <div className="product__text">
             <h1 className="product__name">{response.data.name}</h1>
-            <h2 className="product__price">{toBRL(response.data.price)}</h2>
+            <div className="product__price blue-indicator">{toBRL(response.data.price)}</div>
             <p className="product__description">
               Lorem ipsum dolor sit amet. Sit nisi aliquam quo iure dolorem
               eos autem temporibus in enim enim eum quis beatae aut fuga nihil
@@ -79,10 +85,12 @@ const Product = () => {
             <div className="product__qty">
               <label 
                 htmlFor="qty-items">
-                Quantidade
+                Quantidade: 
               </label>
               <input 
                 type="number"
+                min="1"
+                max="99"
                 name="qty-items"
                 onChange={handleChange}
                 value={qty}

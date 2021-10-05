@@ -1,6 +1,6 @@
 .catalogue {
     font-size: 1.6rem;
-    min-height: 72vh;
+    min-height: calc(100vh - 25rem);
 }
 
 .catalogue__content{

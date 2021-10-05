@@ -1,4 +1,7 @@
+import './styles/Home.css'
+
 import { useState } from 'react';
+import Select from 'react-select';
 
 import GamesList from './GamesList';
 import useRequest from '../hooks/useRequest';
@@ -33,7 +36,10 @@ const getDirectionFromValue = (value) => {
 const Home = () => {
   
   // valor do select list que gerencia a ordenação do catálogo
-  let [sortValue, setSortValue] = useState("price-asc");
+  let [sortOption, setSortOption] = useState({
+    value: 'price-asc',
+    label: 'menor preço'
+  });
   
   // endpoint para buscar todos os jogos
   let endpoint = '/api/games';
@@ -53,33 +59,72 @@ const Home = () => {
   
   // atualiza o valor do select list
   const handleSortChange = (event) => {
-    setSortValue(event.target.value);
+    setSortOption(event.target.value);
   }
-  
+
+  const handleSelect = (option) => {
+    // setSortOption(option.value);
+    setSortOption(option);
+  }
+
   return renderWithRequest(response, () => {
     return (
-      <div>
-          <label htmlFor="sort-games">ordenar por: </label>
-          <select
-              id="sort-games"
-              name="sort-games"
-              onChange={handleSortChange}
-          >
-            <option value="price-asc">menor preço</option>
-            <option value="price-desc">maior preço</option>
-            <option value="name-asc">nome</option>
-            <option value="score-desc">popularidade</option>
-          </select>
+      <div className="catalogue">
+        <div className="catalogue__content">
+          <div className="catalogue__sort">
+            <label htmlFor="sort-games">ordenar por: </label>
+            <Select 
+              options={[
+                  {value: "price-asc",  label: "menor preço"},
+                  {value: "price-desc", label: "maior preço"},
+                  {value: "name asc",   label: "nome"},
+                  {value: "score-desc", label: "popularidade"},
+                ]
+              }
+              styles={customSelectStyle}
+              components={{IndicatorSeparator:() => null}}
+              onChange={handleSelect}
+              isSearchable={false}
+              value={sortOption}
+            />
+            
+          </div>
           
           <GamesList
             games = {response.data}
-            sortProperty  = {getPropertyFromValue(sortValue)}
-            sortDirection = {getDirectionFromValue(sortValue)}
+            sortProperty  = {getPropertyFromValue(sortOption.value)}
+            sortDirection = {getDirectionFromValue(sortOption.value)}
           />
+        </div>
       </div>
     );
   });
 
+}
+
+const customSelectStyle = {
+    container: (provided, state) => ({
+      ...provided,
+      width: '15rem'
+    }),
+    control: (provided, state) => ({
+      ...provided,
+      boxShadow: "none",
+      border: 0
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      border: "none",
+      boxShadow: "none",
+      zIndex: 100
+    }),
+    dropdownIndicator: (base, state) => {
+      return {
+        ...base,
+        transition: 'all .2s ease',
+        transform: state.selectProps.menuIsOpen? 'rotate(180deg)' : null,
+      }
+    }
 }
 
 export default Home;

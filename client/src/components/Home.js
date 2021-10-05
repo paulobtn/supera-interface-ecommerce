@@ -67,12 +67,13 @@ const Home = () => {
     setSortOption(option);
   }
 
+            // <label htmlFor="sort-games">ordenar por: </label>
   return renderWithRequest(response, () => {
     return (
       <div className="catalogue">
         <div className="catalogue__content">
           <div className="catalogue__sort">
-            <label htmlFor="sort-games">ordenar por: </label>
+            <label>Ordenar por: </label>
             <Select 
               options={[
                   {value: "price-asc",  label: "menor preço"},
@@ -86,10 +87,9 @@ const Home = () => {
               onChange={handleSelect}
               isSearchable={false}
               value={sortOption}
+              name="sort-select"
             />
-            
           </div>
-          
           <GamesList
             games = {response.data}
             sortProperty  = {getPropertyFromValue(sortOption.value)}
@@ -105,18 +105,30 @@ const Home = () => {
 const customSelectStyle = {
     container: (provided, state) => ({
       ...provided,
-      width: '15rem'
+      width: 'inherit',
+      display: 'inline-block',
+    }),
+    singleValue: (provided, state) => ({
+      ...provided,
+      // fontWeight: 'bold',
+      // fontSize: '1.5rem'
     }),
     control: (provided, state) => ({
       ...provided,
       boxShadow: "none",
-      border: 0
+      border: 0,
+      backgroundColor: 'transparent',
+      cursor: 'pointer'
     }),
     menu: (provided, state) => ({
       ...provided,
       border: "none",
       boxShadow: "none",
-      zIndex: 100
+      zIndex: 100,
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      cursor: 'pointer'
     }),
     dropdownIndicator: (base, state) => {
       return {

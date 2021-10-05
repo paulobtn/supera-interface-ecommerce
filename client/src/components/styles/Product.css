@@ -17,11 +17,13 @@
 
 .product__image{
   align-self: center;
-  justify-self: center;
+  justify-self: right;
+  margin-bottom: 3.5rem;
 }
 
 .product__text{
-  padding-top: 3rem;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
   align-self: center;
   justify-self: center;
   display: grid;
@@ -31,7 +33,6 @@
 .product__name{
   color: #454545;
   font-weight: 600;
-  
 }
 
 .product__price{
@@ -90,44 +91,15 @@
   background-color: #f1f2f2;
 }
 
-.btn{
-  margin: 1rem;
-  background-color: #2684ff;
-  color: #fff;
-  border: none;
-  border-radius: 3rem;
-  font-family: inherit;
-  font-size: 1.7rem;
-  font-weight: 600;
-  padding: 1.4rem 2.7rem;
-  width: 25rem;
-  cursor: pointer;
-  transition: all .2s;
-}
-
-.btn:hover{
-  background-color: #0675dd
-}
 
 .product__buy-now {
   width: 25rem;
 }
 
-/* .product__buy-now:hover{ */
-  /* background-color: #0675dd */
-/* } */
-
 .product__add-to-cart {
-  /* margin: 1rem; */
   background-color: transparent;
   color: #2684ff;
-  /* border: none; */
-  /* font-family: inherit; */
-  /* font-size: 1.7rem; */
-  /* font-weight: 600; */
   width: 25rem;
-  /* cursor: pointer; */
-  /* transition: all .2s; */
 }
 
 .product__add-to-cart:hover{

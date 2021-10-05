@@ -1,3 +1,5 @@
+import "./styles/CartItem.css";
+
 import {Link} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
@@ -15,18 +17,29 @@ const CartItem = ({ item }) => {
   let imagePath = require(`../assets/${item.data.image}`).default;
 
   return (
-      <div style={{padding: '1rem'}}>
-        <Link to={`/item/${item.data.id}`}>
-          <img src={imagePath} alt={`${item.data.name}`}/>
+      <div className="item">
+        <Link to={`/item/${item.data.id}`} className="item__link">
+          <img 
+            src={imagePath} 
+            alt={`${item.data.name}`}
+            className="item__image"
+          />
         </Link>
-        <div>id: {item.data.id}</div>
-        <div>name: {item.data.name}</div>
-        <div>price: {toBRL(item.data.price)}</div>
-        <div>score: {item.data.score}</div>
-        <div>quantity: {item.quantity}</div>
-        <button onClick={() => {
-          handleRemoveFromCart(item.data.id)
-        }}> Remover </button>
+
+        <div className="item__description">
+          <div className="item__name">{item.data.name}</div>
+          <div className="item__price blue-indicator">{toBRL(item.data.price)}</div>
+          <div className="item__quantity">Quantidade: {item.quantity}</div>
+          <button 
+            onClick={() => {
+              handleRemoveFromCart(item.data.id)
+            }}
+            className="item__remove btn"
+          >
+            Remover
+          </button>
+        </div>
+
       </div>
   ) 
 }

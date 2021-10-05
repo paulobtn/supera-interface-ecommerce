@@ -1,3 +1,5 @@
+import "./styles/ShoppingCart.css";
+
 import {useSelector} from 'react-redux';
 
 import CartItem from './CartItem';
@@ -11,24 +13,24 @@ const ShoppingCart = () => {
   const renderComponent = () => {
 
     return (
-      <div>
-        {cart.shoppingCart.map((item) => {
-          return (
-            <CartItem 
-              key = {item.data.id}
-              item = {item}
-            />
-          )
-        })}
+      <section className="shopping">
+          {cart.shoppingCart.map((item) => {
+            return (
+              <CartItem 
+                key = {item.data.id}
+                item = {item}
+              />
+            )
+          })}
        
-        <div>quantidade: {cart.quantity}</div>
-        <div>Subtotal: {toBRL(cart.subtotal)}</div>
-        <div>Frete: {toBRL(cart.shipping)}</div>
-        <div>Isento de frete: {cart.freeShipping ? 'sim' : 'não'}</div>
-        <div>Total: {toBRL(cart.total)}</div>
-      </div>
+      </section>
     )
-    
+
+        // <div>quantidade: {cart.quantity}</div>
+        // <div>Subtotal: {toBRL(cart.subtotal)}</div>
+        // <div>Frete: {toBRL(cart.shipping)}</div>
+        // <div>Isento de frete: {cart.freeShipping ? 'sim' : 'não'}</div>
+        // <div>Total: {toBRL(cart.total)}</div>
   }
 
   return (renderComponent());

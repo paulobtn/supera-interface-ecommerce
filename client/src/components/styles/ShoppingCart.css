@@ -21,11 +21,13 @@
     border: 2px solid #f1f2f2;
     border-radius: 1rem; 
     margin: 1rem auto;
-    max-width: 100rem;
-
+    padding: 4rem;
+    /* max-width: 100rem; */
+    max-width: 80rem;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    grid-template-columns: 1fr 2fr;
     grid-gap: 1.2rem;
 }
 

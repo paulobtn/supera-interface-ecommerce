@@ -16,8 +16,9 @@ const CartItem = ({ item }) => {
 
   let imagePath = require(`../assets/${item.data.image}`).default;
 
+      // <div className="item">
   return (
-      <div className="item">
+      <>
         <Link to={`/item/${item.data.id}`} className="item__link">
           <img 
             src={imagePath} 
@@ -40,7 +41,7 @@ const CartItem = ({ item }) => {
           </button>
         </div>
 
-      </div>
+      </>
   ) 
 }
 

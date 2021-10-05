@@ -127,10 +127,11 @@ const customSelectStyle = {
       border: "none",
       boxShadow: "none",
       zIndex: 100,
+      width: '15rem'
     }),
     option: (provided, state) => ({
       ...provided,
-      cursor: 'pointer'
+      cursor: 'pointer',
     }),
     dropdownIndicator: (base, state) => {
       return {

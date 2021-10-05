@@ -58,16 +58,11 @@ const Home = () => {
   });
   
   // atualiza o valor do select list
-  const handleSortChange = (event) => {
-    setSortOption(event.target.value);
-  }
-
   const handleSelect = (option) => {
     // setSortOption(option.value);
     setSortOption(option);
   }
 
-            // <label htmlFor="sort-games">ordenar por: </label>
   return renderWithRequest(response, () => {
     return (
       <div className="catalogue">
@@ -104,18 +99,23 @@ const Home = () => {
 
 }
 
+/* Customização para o Select da biblioteca react-select. A biblioteca
+ * provê uma interface em que podemos alterar os elementos do css por
+ * este objeto
+ */
 const customSelectStyle = {
     container: (provided, state) => ({
+      // container do select
       ...provided,
       width: 'inherit',
       display: 'inline-block',
     }),
     singleValue: (provided, state) => ({
+      // texto selecionado
       ...provided,
-      // fontWeight: 'bold',
-      // fontSize: '1.5rem'
     }),
     control: (provided, state) => ({
+      // elemento inteiro
       ...provided,
       boxShadow: "none",
       border: 0,
@@ -123,6 +123,7 @@ const customSelectStyle = {
       cursor: 'pointer'
     }),
     menu: (provided, state) => ({
+      // estilo para a lista de opções
       ...provided,
       border: "none",
       boxShadow: "none",
@@ -130,10 +131,13 @@ const customSelectStyle = {
       width: '15rem'
     }),
     option: (provided, state) => ({
+      // estilo para opção específica
       ...provided,
       cursor: 'pointer',
     }),
     dropdownIndicator: (base, state) => {
+      /* estilo para ícone de seta para baixo.
+         Rotaciona ao abrir o menu */
       return {
         ...base,
         transition: 'all .2s ease',

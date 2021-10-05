@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { toBRL } from "./helpers";
+
+import GameCard from "./GameCard";
 
 /* Retorna uma função de comparação a ser usada pela função sort.
  * A propriedade do array de objects e a ordem é customizável.
@@ -22,6 +22,7 @@ const compareProperty = (property, direction) => {
   } 
 }
 
+
 /* Componente que renderiza o catálogo de jogos */
 const GamesList = ({games, sortProperty, sortDirection}) => {
   
@@ -32,18 +33,12 @@ const GamesList = ({games, sortProperty, sortDirection}) => {
 
   return (
     games.map( (item) => {
-      let imagePath = require(`../assets/${item.image}`).default;
       return (
-          <div key={item.id} style={{padding: '1rem'}}>
-            <Link to={`/item/${item.id}`}>
-              <img src={imagePath} alt={`${item.name}`}/>
-            </Link>
-            <div>id: {item.id}</div>
-            <div>name: {item.name}</div>
-            <div>price: {toBRL(item.price)}</div>
-            <div>score: {item.score}</div>
-          </div>
-      )
+        <GameCard 
+          item={item}
+          key={item.id}
+        />
+      )    
     })
   )
 };

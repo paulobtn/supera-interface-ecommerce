@@ -41,3 +41,22 @@ body {
   background: #2684ff;
   border-radius: 5rem;
 }
+
+.btn{
+  margin: 1rem;
+  background-color: #2684ff;
+  color: #fff;
+  border: none;
+  border-radius: 3rem;
+  font-family: inherit;
+  font-size: 1.7rem;
+  font-weight: 600;
+  padding: 1.4rem 2.7rem;
+  width: 25rem;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.btn:hover{
+  background-color: #0675dd
+}

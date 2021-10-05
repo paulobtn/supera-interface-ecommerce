@@ -102,14 +102,14 @@ const Product = () => {
                   handleBuyNow(qty, response.data)
                 }
               }
-              className="product__buy-now" 
+              className="product__buy-now btn" 
             > Comprar agora </button>
 
             <button 
               onClick={() => {
                 handleAddToCart(qty, response.data)
               }}
-              className="product__add-to-cart" 
+              className="product__add-to-cart btn" 
             > Adicionar ao carrinho </button>
 
           </div>

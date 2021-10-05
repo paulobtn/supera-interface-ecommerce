@@ -1,0 +1,29 @@
+
+.footer {
+    margin-top: 4rem;
+    font-size: 1.6rem;
+    height: 12rem;
+    background-color: #ffffff;
+    border-top: 2px solid #f4f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__content{
+    font-weight: 200;
+    align-items: center;
+    color: #454545;
+}
+
+.github{
+  width: 5rem;
+  height: 5rem;
+  fill: black;
+  transition: all .2s;
+}
+
+.github:hover{
+  width: 6rem;
+  height: 6rem;
+}

@@ -11,13 +11,14 @@ import Home from './Home';
 import Product from './Product';
 import ShoppingCart from './ShoppingCart';
 import NotFound from './NotFound';
+import Footer from './Footer';
 
 const App = () => {
 
   return(
     <Router>
 
-      <div className="container"> 
+      <> 
           
         <Header />
 
@@ -40,7 +41,9 @@ const App = () => {
           </Route>
 
         </Switch>
-      </div>
+        <Footer />
+      </>
+
 
     </Router>
   )

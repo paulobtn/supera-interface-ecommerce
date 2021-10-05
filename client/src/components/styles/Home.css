@@ -1,5 +1,6 @@
 .catalogue {
     font-size: 1.6rem;
+    min-height: 72vh;
 }
 
 .catalogue__content{
@@ -10,6 +11,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
 }
 
 .catalogue__sort{

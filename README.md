@@ -28,7 +28,7 @@ npm run dev
 
 Testes da api podem ser realizados com:
 ```
-npm run test --prefix server
+npm run test
 ```
 
 ### cliente

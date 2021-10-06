@@ -2,14 +2,11 @@
   align-self: center;
   justify-self: center;
 
-
   background-color: white;
   padding-top: 3rem;
   padding-bottom: 2rem;
   width: 25rem;
   height: 30rem;
-  /* border: 2px solid #f4f3f3; */
-  /* border: 2px solid #eaeaea; */
   border: 2px solid #f1f2f2;
   border-radius: 1rem; 
   text-decoration: none;
@@ -44,9 +41,12 @@
 @media only screen and (max-width: 800px) {
   .catalogue__card{
     width: 85%;
-    /* height: 35rem; */
   }
   .catalogue__name{
     margin-top: 1.5rem; 
+  }
+
+  .catalogue__card:hover{
+    width: 90%;
   }
 }

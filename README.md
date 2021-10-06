@@ -16,6 +16,11 @@ Desafio da empresa Supera de desenvolver o front-end de um e-commerce de games e
 - subtotal, frete e total calculados dinâmicamente na página do carrinho
 - totalmente responsivo com uso de flexbox, grids e media queries
 
+## Demo
+
+Hospedei uma demo no [heroku](https://floating-depths-47520.herokuapp.com/cart).
+pode demorar alguns segundos para abrir pela primeira vez por ser hospedado no plano gratuito.
+
 ## Como executar
 
 ### dependências

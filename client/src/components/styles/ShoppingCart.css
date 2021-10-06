@@ -13,7 +13,18 @@
 }
 
 .shopping__cart {
+    background-color: white;
+    border: 2px solid #f1f2f2;
+    border-radius: 1rem; 
+    margin: 1rem auto;
+    padding: 4rem;
+    font-family:inherit;
+    font-weight: 200;
+    color: #454545
 
+}
+
+.shopping__cart__content{
     background-color: white;
     border: 2px solid #f1f2f2;
     border-radius: 1rem; 
@@ -26,6 +37,7 @@
     align-items: center;
     grid-template-columns: 1fr 2fr;
     grid-gap: 1.2rem;
+
 }
 
 .shopping__checkout{

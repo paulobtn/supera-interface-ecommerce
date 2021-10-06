@@ -27,7 +27,7 @@ const Product = () => {
     method: 'get'
   });
 
-  // botão de adicionar no carrinho adicionar no carrinho
+  // botão de adicionar no carrinho
   const handleAddToCart = (quantity, data) => {
     dispatch(addToCart(quantity, data));
     console.log(qty + " itens adicionados ao carrinho");
@@ -59,25 +59,32 @@ const Product = () => {
 
     return(
       <section className="product">
-        <div className="product__content">
 
-          <img 
-            src={imagePath} 
-            alt={`${response.data.name}`}
-            className="product__image"
-          />
-          
-          <div className="product__text">
-            <h1 className="product__name">{response.data.name}</h1>
-            <div className="product__price blue-indicator">{toBRL(response.data.price)}</div>
-            <p className="product__description">
-              Lorem ipsum dolor sit amet. Sit nisi aliquam quo iure dolorem
-              eos autem temporibus in enim enim eum quis beatae aut fuga nihil
-              eos dolorem dolores. Ut tenetur placeat et reiciendis commodi
-              aut nihil autem a reprehenderit incidunt! Est consequuntur nobis
-              ex asperiores rerum ut accusamus aperiam vel dolores nostrum et
-              architecto vel amet enim.
-            </p>
+          <div className="product__info">
+            <img 
+              src={imagePath} 
+              alt={`${response.data.name}`}
+              className="product__image"
+            />
+                    
+            <div className="product__text">
+              <h1 className="product__name">{response.data.name}</h1>
+              <div className="product__price blue-indicator">{toBRL(response.data.price)}</div>
+              <p className="product__description">
+                Lorem ipsum dolor sit amet. Sit nisi aliquam quo iure dolorem
+                eos autem temporibus in enim enim eum quis beatae aut fuga nihil
+                eos dolorem dolores. Ut tenetur placeat et reiciendis commodi
+                aut nihil autem a reprehenderit incidunt! Est consequuntur nobis
+                ex asperiores rerum ut accusamus aperiam vel dolores nostrum et
+                architecto vel amet enim.
+                Lorem ipsum dolor sit amet. Sit nisi aliquam quo iure dolorem
+                eos autem temporibus in enim enim eum quis beatae aut fuga nihil
+                eos dolorem dolores. Ut tenetur placeat et reiciendis commodi
+                aut nihil autem a reprehenderit incidunt! Est consequuntur nobis
+                ex asperiores rerum ut accusamus aperiam vel dolores nostrum et
+                architecto vel amet enim.
+              </p>
+            </div>
           </div>
 
           <div className="product__purchase">
@@ -99,22 +106,22 @@ const Product = () => {
 
             <button 
               onClick={() => {
+                handleAddToCart(qty, response.data)
+              }}
+              className="product__add-to-cart btn" 
+            > Adicionar ao carrinho </button>
+
+            <button 
+              onClick={() => {
                   handleBuyNow(qty, response.data)
                 }
               }
               className="product__buy-now btn" 
             > Comprar agora </button>
 
-            <button 
-              onClick={() => {
-                handleAddToCart(qty, response.data)
-              }}
-              className="product__add-to-cart btn" 
-            > Adicionar ao carrinho </button>
 
           </div>
 
-        </div>
       </section>
     )
 

@@ -28,14 +28,17 @@ const ShoppingCart = () => {
     return (
       <section className="shopping">
         <div className="shopping__cart">
-          {cart.shoppingCart.map((item) => {
-            return (
-              <CartItem 
-                key = {item.data.id}
-                item = {item}
-              />
-            )
-          })}
+          <h1>Carrinho de compras</h1>
+          <div className="shopping__cart__content">
+            {cart.shoppingCart.map((item) => {
+              return (
+                <CartItem 
+                  key = {item.data.id}
+                  item = {item}
+                />
+              )
+            })}
+          </div>
         </div>
         <div className="shopping__checkout">
           <div className="shopping__text-value">

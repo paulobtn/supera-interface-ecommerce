@@ -1,33 +1,61 @@
 .product {
     font-size: 1.6rem;
     min-height: calc(100vh - 25rem);
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    /* justify-content: center; */
+    max-width: 125rem;
+    margin: 0 auto;
 }
 
-.product__content{
-    background-color: white;
-    border: 2px solid #f1f2f2;
-    border-radius: 1rem; 
-    margin: 1rem auto;
-    max-width: 100rem;
+.product__info{
+    max-width: 90rem;
 
     display: grid;
     grid-template-columns: 1fr 3fr;
-    grid-gap: 0.5rem;
+    grid-gap: 1.5rem;
+    padding: 2rem;
+    background-color: white;
+    border: 2px solid #f1f2f2;
+    border-radius: 1rem;
+    margin: 1rem auto;
+}
+
+.product__purchase{
+    background-color: white;
+    border: 2px solid #f1f2f2;
+    border-radius: 1rem;
+    margin: 1rem auto;
+    padding: 3rem;
+    width: 30rem;
+    margin-bottom: 4.5rem;
+    justify-self: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .product__image{
-  align-self: center;
+  align-self: start;
   justify-self: right;
   margin-bottom: 3.5rem;
+  margin-top: 5rem;
+  padding: 0 5rem;
 }
 
 .product__text{
   margin-top: 6rem;
   margin-bottom: 3rem;
   align-self: center;
-  justify-self: center;
+  justify-self: left;
   display: grid;
-  grid-gap: 2rem;
+  grid-gap: 1rem;
 }
 
 .product__name{
@@ -48,31 +76,14 @@
 .product__description{
   color: #656565;
   font-weight: 500;
-  max-width: 60ch;
-  margin-top: 1.5rem;
+  max-width: 50ch;
+  margin-top: 3.5rem;
 }
 
-.product__purchase{
-  margin-bottom: 4.5rem;
-  align-self: center;
-  justify-self: center;
-
-  margin-left: 5rem;
-
-  grid-row: 2;
-  grid-column: 2;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  gap: 1rem;
-
-}
 
 .product__qty{
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
 }
 
@@ -90,13 +101,15 @@
   outline: none;
 }
 .product__qty > input:focus{
-
   background-color: #f1f2f2;
 }
 
-
 .product__buy-now {
-  width: 25rem;
+  padding:0;
+  margin: 0;
+  margin-top: 1rem;
+  padding: .8rem 0;
+  width: 100%;
 }
 
 .product__add-to-cart {

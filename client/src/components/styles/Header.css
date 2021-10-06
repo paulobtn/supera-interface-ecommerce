@@ -80,3 +80,21 @@
   fill: #2684ff;
 }
 
+@media only screen and (max-width: 600px) {
+  
+  .header{
+    font-size: 1.3rem;
+  }
+  .logo__link{
+    font-size: 1.8rem;
+  }
+  .cart-nav__icon{
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+  .cart-nav__notification{
+    font-size: 1.1rem;
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+}

@@ -23,6 +23,7 @@
     outline: none;
     width: 100%;
     background-color: #ededed;
+
 }
 
 .search__button{
@@ -47,4 +48,10 @@
   height: 2rem;
   width: 2rem;
   fill: #7e7e7e;
+}
+
+@media only screen and (max-width: 600px) {
+  .search{
+    flex: 0 0 60%;
+  }
 }

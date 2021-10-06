@@ -40,12 +40,20 @@
 @media only screen and (max-width: 800px) {
   .catalogue__games{
     grid-template-columns: 1fr 1fr;
-
+    grid-gap: 2rem;;
   }
 }
 
 @media only screen and (max-width: 600px) {
+
+  .catalogue{
+    font-size: 1.5rem;
+  }
   .catalogue__games{
     grid-template-columns: 1fr;
+  }
+
+  .catalogue__sort{
+    align-self: center;
   }
 }

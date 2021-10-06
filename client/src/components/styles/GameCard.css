@@ -39,6 +39,14 @@
 .catalogue__price{
   font-weight: 600;
   font-size: 1.7rem;
+}
 
-  
+@media only screen and (max-width: 800px) {
+  .catalogue__card{
+    width: 85%;
+    /* height: 35rem; */
+  }
+  .catalogue__name{
+    margin-top: 1.5rem; 
+  }
 }

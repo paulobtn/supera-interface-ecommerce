@@ -122,7 +122,6 @@
 @media only screen and (max-width: 600px) {
 
   .shopping__cart{
-    max-width: 90%;
     font-size: 1.5rem;
   }
 
@@ -133,6 +132,7 @@
 
   .shopping__cart__content{
     grid-template-columns: 1fr;
+    /* border: none */
   }
   .shopping__checkout{
     width: 32rem;
@@ -150,4 +150,14 @@
   .shopping__pay{
     font-size: 1.5rem;
   }
+
+  .empty__message{
+    font-size: 2.7rem;
+    font-weight: 200;
+  }
+
+  .empty__link{
+    font-size: 2rem;
+  }
+
 }

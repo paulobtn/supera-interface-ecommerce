@@ -19,7 +19,6 @@
 .item__description{
   /* align-self: flex-start; */
   display: inline-block;
-
 }
 
 
@@ -71,3 +70,49 @@
   color: #d22a2a;
 }
 
+@media only screen and (max-width: 800px) {
+  .item__name{
+    font-size: 2.0rem;
+  }
+  .item__price{
+    margin-top: 1rem;
+    font-size: 2rem;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  .item__link{
+    align-self: start;
+    justify-self: start;
+    margin-right: 2rem;
+  }
+
+  .item__description{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    /* justify-content:center; */
+  }
+
+  .item__name{
+    /* text-align: center; */
+    font-weight: 600;
+  }
+  .item__price{
+     justify-self: center;
+     font-size: 2.0rem;
+     text-align: center;
+  }
+
+  .item__quantity{
+    margin-top: 1rem;
+  }
+
+  .item__remove{
+
+  }
+
+}

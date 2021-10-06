@@ -10,7 +10,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-
 }
 
 .catalogue__sort{
@@ -19,12 +18,16 @@
 
   display: flex;
   align-items: center;
+  justify-content: center;
+
 }
 
 .catalogue__sort > label {
   font-weight: 600;
   font-size: 1.25rem;
-  color: #454545
+  color: #454545;
+
+  margin-top: .3rem;
 }
 
 .catalogue__games{
@@ -55,5 +58,11 @@
 
   .catalogue__sort{
     align-self: center;
+  }
+
+  .catalogue__sort > label {
+    font-size: 1.5rem;
+    margin-top: .05rem;
+    font-weight: 400;
   }
 }

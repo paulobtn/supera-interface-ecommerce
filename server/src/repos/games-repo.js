@@ -6,10 +6,10 @@
  */
 
 const fs = require('fs');
-
-const productsPath = "../../products.json";
+const path = require('path');
 
 const loadProducts = () => {
+  let productsPath = path.join(__dirname, '..', '..', 'data', 'products.json');
   let rawProducts = fs.readFileSync(productsPath);
   let products = JSON.parse(rawProducts);
   return products;

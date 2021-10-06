@@ -20,7 +20,7 @@ const ShoppingCart = () => {
           <div className="empty__message">
             O carrinho está vazio
           </div>
-          <Link className="empty__link" to={"/"}>ir para o catálogo</Link>
+          <Link className="empty__link link" to={"/"}>ir para o catálogo</Link>
         </div>
       )
     }

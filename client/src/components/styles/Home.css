@@ -16,6 +16,9 @@
 .catalogue__sort{
   align-self: flex-end;
   margin: 2rem;
+
+  display: flex;
+  align-items: center;
 }
 
 .catalogue__sort > label {
@@ -30,4 +33,19 @@
   /* grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); */
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1.2rem;
+
+  
+}
+
+@media only screen and (max-width: 800px) {
+  .catalogue__games{
+    grid-template-columns: 1fr 1fr;
+
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .catalogue__games{
+    grid-template-columns: 1fr;
+  }
 }

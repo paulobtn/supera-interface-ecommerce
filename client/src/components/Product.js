@@ -8,6 +8,7 @@ import {useState} from 'react';
 import {renderWithRequest} from './helpers';
 import {toBRL} from './helpers';
 import {addToCart} from '../actions';
+import CartNotice from './CartNotice';
 
 
 const Product = () => {
@@ -17,6 +18,9 @@ const Product = () => {
 
   // quantidade de itens a adicionar no carrinho
   const [qty, setQty] = useState(1);
+
+  // indica se o item foi adicionado ao carrinho para mostrar a popup
+  const [toCart, setToCart] = useState(false);
   
   // id do produto vindo da URL
   let {id} = useParams();
@@ -30,7 +34,7 @@ const Product = () => {
   // botão de adicionar no carrinho
   const handleAddToCart = (quantity, data) => {
     dispatch(addToCart(quantity, data));
-    console.log(qty + " itens adicionados ao carrinho");
+    setToCart(true);
   }
   
   /* botão que adiciona no carrinho e redireciona para a 
@@ -53,76 +57,82 @@ const Product = () => {
     setQty(newQty);
   }
 
+
   return renderWithRequest(response, () => {
 
     let imagePath = require(`../assets/${response.data.image}`).default;
 
     return(
-      <section className="product">
+      <>
+        {
+          toCart && <CartNotice item={response.data.name}/>
+        }
+        <section className="product">
 
-          <div className="product__info">
-            <img 
-              src={imagePath} 
-              alt={`${response.data.name}`}
-              className="product__image"
-            />
-                    
-            <div className="product__text">
-              <h1 className="product__name">{response.data.name}</h1>
-              <div className="product__price blue-indicator">{toBRL(response.data.price)}</div>
-              <p className="product__description">
-                Lorem ipsum dolor sit amet. Sit nisi aliquam quo iure dolorem
-                eos autem temporibus in enim enim eum quis beatae aut fuga nihil
-                eos dolorem dolores. Ut tenetur placeat et reiciendis commodi
-                aut nihil autem a reprehenderit incidunt! Est consequuntur nobis
-                ex asperiores rerum ut accusamus aperiam vel dolores nostrum et
-                architecto vel amet enim.
-                Lorem ipsum dolor sit amet. Sit nisi aliquam quo iure dolorem
-                eos autem temporibus in enim enim eum quis beatae aut fuga nihil
-                eos dolorem dolores. Ut tenetur placeat et reiciendis commodi
-                aut nihil autem a reprehenderit incidunt! Est consequuntur nobis
-                ex asperiores rerum ut accusamus aperiam vel dolores nostrum et
-                architecto vel amet enim.
-              </p>
-            </div>
-          </div>
-
-          <div className="product__purchase">
-            
-            <div className="product__qty">
-              <label 
-                htmlFor="qty-items">
-                Quantidade: 
-              </label>
-              <input 
-                type="number"
-                min="1"
-                max="99"
-                name="qty-items"
-                onChange={handleChange}
-                value={qty}
+            <div className="product__info">
+              <img 
+                src={imagePath} 
+                alt={`${response.data.name}`}
+                className="product__image"
               />
+                      
+              <div className="product__text">
+                <h1 className="product__name">{response.data.name}</h1>
+                <div className="product__price blue-indicator">{toBRL(response.data.price)}</div>
+                <p className="product__description">
+                  Lorem ipsum dolor sit amet. Sit nisi aliquam quo iure dolorem
+                  eos autem temporibus in enim enim eum quis beatae aut fuga nihil
+                  eos dolorem dolores. Ut tenetur placeat et reiciendis commodi
+                  aut nihil autem a reprehenderit incidunt! Est consequuntur nobis
+                  ex asperiores rerum ut accusamus aperiam vel dolores nostrum et
+                  architecto vel amet enim.
+                  Lorem ipsum dolor sit amet. Sit nisi aliquam quo iure dolorem
+                  eos autem temporibus in enim enim eum quis beatae aut fuga nihil
+                  eos dolorem dolores. Ut tenetur placeat et reiciendis commodi
+                  aut nihil autem a reprehenderit incidunt! Est consequuntur nobis
+                  ex asperiores rerum ut accusamus aperiam vel dolores nostrum et
+                  architecto vel amet enim.
+                </p>
+              </div>
             </div>
 
-            <button 
-              onClick={() => {
-                handleAddToCart(qty, response.data)
-              }}
-              className="product__add-to-cart btn" 
-            > Adicionar ao carrinho </button>
+            <div className="product__purchase">
+              
+              <div className="product__qty">
+                <label 
+                  htmlFor="qty-items">
+                  Quantidade: 
+                </label>
+                <input 
+                  type="number"
+                  min="1"
+                  max="99"
+                  name="qty-items"
+                  onChange={handleChange}
+                  value={qty}
+                />
+              </div>
 
-            <button 
-              onClick={() => {
-                  handleBuyNow(qty, response.data)
+              <button 
+                onClick={() => {
+                  handleAddToCart(qty, response.data)
+                }}
+                className="product__add-to-cart btn" 
+              > Adicionar ao carrinho </button>
+
+              <button 
+                onClick={() => {
+                    handleBuyNow(qty, response.data)
+                  }
                 }
-              }
-              className="product__buy-now btn" 
-            > Comprar agora </button>
+                className="product__buy-now btn" 
+              > Comprar agora </button>
 
 
-          </div>
+            </div>
 
-      </section>
+        </section>
+      </>
     )
 
   });

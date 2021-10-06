@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, EDIT_SEARCH } from "./types";
+import { ADD_TO_CART, REMOVE_FROM_CART } from "./types";
 
 /* Adiciona produto ao carrinho de compras e sua quantidade.
  * Caso já exista, apenas soma a quantidade

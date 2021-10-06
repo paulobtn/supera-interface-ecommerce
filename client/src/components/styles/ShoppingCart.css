@@ -92,18 +92,9 @@
   font-size: 4rem;
   font-weight: 200;
 }
+
 .empty__link{
   font-size: 2.5rem;
-  font-weight: 400;
-  color: #2684ff;
-  text-decoration: none;
-
-  transition: all .2s;
-}
-
-.empty__link:hover{
-  color: #0675dd;
-
 }
 
 

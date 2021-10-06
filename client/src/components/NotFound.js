@@ -8,7 +8,7 @@ const NotFound = () => {
       <div className="not-found__message">
         A página não foi encontrada :(
       </div>
-      <Link className="not-found__link" to={"/"}>Voltar à página inicial</Link>
+      <Link className="not-found__link link" to={"/"}>Voltar à página inicial</Link>
     </div>
   )
 }

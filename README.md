@@ -55,7 +55,7 @@ testes podem ser executados com
 npm run test --prefix client
 ```
 
-O site app pode ser executado pela url:
+O app pode ser executado pela url:
 ```
 http://localhost:3000
 ```

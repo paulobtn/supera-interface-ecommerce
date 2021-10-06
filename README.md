@@ -18,7 +18,7 @@ Desafio da empresa Supera de desenvolver o front-end de um e-commerce de games e
 
 ## Demo
 
-Hospedei uma demo no [heroku](https://floating-depths-47520.herokuapp.com/cart).
+Hospedei uma demo no [heroku](https://floating-depths-47520.herokuapp.com/).
 pode demorar alguns segundos para abrir pela primeira vez por ser hospedado no plano gratuito.
 
 ## Como executar

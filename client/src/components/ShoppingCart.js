@@ -7,7 +7,6 @@ import CartItem from './CartItem';
 import {toBRL} from './helpers';
 
 
-
 const ShoppingCart = () => {
   
   const cart = useSelector((state) => state.cart);
@@ -28,7 +27,7 @@ const ShoppingCart = () => {
         </div>
         <div className="shopping__checkout">
           <div className="shopping__text-value">
-            subtotal ({cart.quantity} itens): 
+            subtotal ({cart.quantity} {cart.quantity > 1 ? "itens" : "item"}): 
             <span>{toBRL(cart.subtotal)} </span>
           </div>
           <div className="shopping__text-value">

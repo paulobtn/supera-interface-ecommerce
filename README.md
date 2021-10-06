@@ -16,31 +16,36 @@ Desafio da empresa Supera de desenvolver o front-end de um e-commerce de games e
 
 ## Como executar
 
+### dependências
+Inicialmente instale o npm.
+
+```
+npm install --prefix server && npm install --prefix client
+```
+Instale as dependências do projeto com
+
 ### servidor
 
 Para executar o front-end, é necessário rodar um simples servidor desenvolvido que
 lê o arquivo json e serve os dados via REST:
 ```
-cd server
-npm install
-npm run dev
+npm run dev --prefix server
 ```
 
 Testes da api podem ser realizados com:
 ```
-npm run test
+npm run test --prefix  server
 ```
 
 ### cliente
 
 Com o servidor rodando, podemos executar o cliente desenvolvido:
 ```
-cd client
-npm install
+npm install --prefix client
 ```
 testes podem ser executados com
 ```
-npm run test
+npm run test --prefix client
 ```
 
 O site app pode ser executado pela url:

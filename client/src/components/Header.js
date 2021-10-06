@@ -14,7 +14,12 @@ const Header = () => {
     <header className="header">
       <div className="header__content">
         <div className="logo">
-          <Link to={'/'} className="logo__link" > LOGO </Link>
+          {
+            //<Link to={'/'} className="logo__link" > LOGO </Link>
+            // estou recarregando a página para limpar a pesquisa
+            // e atualizar o catálogo
+          }
+          <a href="/" className="logo__link">LOGO</a>
         </div>
         
         <SearchForm />

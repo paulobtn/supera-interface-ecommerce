@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "./types";
+import { ADD_TO_CART, REMOVE_FROM_CART, EDIT_SEARCH } from "./types";
 
 /* Adiciona produto ao carrinho de compras e sua quantidade.
  * Caso já exista, apenas soma a quantidade
@@ -20,9 +20,19 @@ export const addToCart = (quantity, data) => {
   }
 };
 
+/* remove produto do carrinho de compras baseado no id */
 export const removeFromCart = (id) => {
   return {
     type: REMOVE_FROM_CART,
     payload: { id }
   }
-}
+};
+
+/* Edita formulário de pesquisa */
+
+export const editSearch = (str) => {
+  return {
+    type: EDIT_SEARCH,
+    payload: str
+  }
+};

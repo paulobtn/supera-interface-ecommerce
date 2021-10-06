@@ -1,6 +1,7 @@
 import "./styles/ShoppingCart.css";
 
 import {useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import Shipping from './Shipping';
 import CartItem from './CartItem';
@@ -12,6 +13,17 @@ const ShoppingCart = () => {
   const cart = useSelector((state) => state.cart);
 
   const renderComponent = () => {
+
+    if(cart.quantity === 0){
+      return(
+        <div className="empty">
+          <div className="empty__message">
+            O carrinho está vazio
+          </div>
+          <Link className="empty__link" to={"/"}>ir para o catálogo</Link>
+        </div>
+      )
+    }
 
     return (
       <section className="shopping">
@@ -27,7 +39,7 @@ const ShoppingCart = () => {
         </div>
         <div className="shopping__checkout">
           <div className="shopping__text-value">
-            subtotal ({cart.quantity} {cart.quantity > 1 ? "itens" : "item"}): 
+            subtotal ({cart.quantity} {cart.quantity === 1 ? "item" : "itens"}): 
             <span>{toBRL(cart.subtotal)} </span>
           </div>
           <div className="shopping__text-value">
@@ -39,8 +51,6 @@ const ShoppingCart = () => {
        
       </section>
     )
-
-          // <div>Isento de frete: {cart.freeShipping ? 'sim' : 'não'}</div>
   }
 
   return (renderComponent());

@@ -41,7 +41,7 @@ npm run test --prefix  server
 
 Com o servidor rodando, podemos executar o cliente desenvolvido:
 ```
-npm install --prefix client
+npm start --prefix client
 ```
 testes podem ser executados com
 ```

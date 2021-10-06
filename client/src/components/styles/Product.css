@@ -31,7 +31,7 @@
     background-color: white;
     border: 2px solid #f1f2f2;
     border-radius: 1rem;
-    margin: 1rem auto;
+    margin: 1rem 1rem;
     padding: 3rem;
     width: 30rem;
     margin-bottom: 4.5rem;
@@ -129,6 +129,7 @@
 @media only screen and (max-width: 1200px) {
   .product__purchase{
     width: 45rem;
+    margin: 1rem auto;
   }
 }
 

@@ -2,8 +2,10 @@ import "./styles/ShoppingCart.css";
 
 import {useSelector} from 'react-redux';
 
+import Shipping from './Shipping';
 import CartItem from './CartItem';
 import {toBRL} from './helpers';
+
 
 
 const ShoppingCart = () => {
@@ -29,7 +31,9 @@ const ShoppingCart = () => {
             subtotal ({cart.quantity} itens): 
             <span>{toBRL(cart.subtotal)} </span>
           </div>
-          <div className="shopping__text-value">Frete: <span>{toBRL(cart.shipping)}</span></div>
+          <div className="shopping__text-value">
+            Frete: <Shipping value={cart.shipping} freeShipping={cart.freeShipping} />
+          </div>
           <div className="shopping__text-value">Total: <span>{toBRL(cart.total)}</span></div>
           <button className="shopping__pay btn">Pagar</button>
         </div>

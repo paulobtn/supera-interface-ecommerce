@@ -3,5 +3,3 @@ export const ADD_TO_CART = "add_to_cart";
 // Remove item do carrinho de compras
 export const REMOVE_FROM_CART = "remove_from_cart";
 
-// edita o formulário de pesquisa
-export const EDIT_SEARCH = "edit_search";

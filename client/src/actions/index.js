@@ -27,12 +27,3 @@ export const removeFromCart = (id) => {
     payload: { id }
   }
 };
-
-/* Edita formulário de pesquisa */
-
-export const editSearch = (str) => {
-  return {
-    type: EDIT_SEARCH,
-    payload: str
-  }
-};

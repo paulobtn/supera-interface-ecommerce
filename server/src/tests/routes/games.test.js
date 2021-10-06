@@ -36,3 +36,12 @@ it('Carrega um jogo específico', async () => {
   expect(response.body.image).toEqual("the-witcher-iii-wild-hunt.png");
 
 });
+
+it('Carrega jogos a partir de query string', async () => {
+  const response = await request(app())
+    .get('/api/games?q=call+of+duty')
+    .expect(200)
+    .expect("Content-Type", /json/);
+
+  expect(response.body.length).toEqual(2);
+});

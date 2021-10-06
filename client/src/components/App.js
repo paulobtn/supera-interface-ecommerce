@@ -12,6 +12,7 @@ import Product from './Product';
 import ShoppingCart from './ShoppingCart';
 import NotFound from './NotFound';
 import Footer from './Footer';
+import ScrollToTop from './ScrollToTop';
 
 const App = () => {
 
@@ -29,10 +30,12 @@ const App = () => {
           </Route>
 
           <Route exact path="/item/:id">
+            <ScrollToTop/>
             <Product /> 
           </Route>
 
           <Route exact path="/cart">
+            <ScrollToTop/>
             <ShoppingCart />
           </Route>
 

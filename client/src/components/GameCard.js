@@ -11,6 +11,7 @@ const GameCard = ({item}) => {
       <Link 
         to={`/item/${item.id}`}
         className="catalogue__card"
+        title={item.name}
       >
         <img 
           src={imagePath} alt={`${item.name}`}

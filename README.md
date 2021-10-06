@@ -26,7 +26,7 @@ npm install --prefix server && npm install --prefix client
 
 ### servidor
 
-Para executar o front-end, é necessário rodar um simples servidor desenvolvido que
+Antes de executar o front-end, é necessário rodar um simples servidor desenvolvido que
 lê o arquivo json e serve os dados via REST:
 ```
 npm run dev --prefix server

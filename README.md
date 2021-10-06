@@ -1,6 +1,7 @@
 # E-commerce de games
 
-Desafio da empresa Supera de desenvolver o front-end de um e-commerce de games em React.
+Repositório com o que eu fiz de 30/09/2021 a 6/10/2021 de um desafio da empresa Supera que era
+desenvolver o front-end de um e-commerce de games em React.
 
 ![webapp screenshot](/games-home.png)
 

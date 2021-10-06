@@ -17,12 +17,12 @@ Desafio da empresa Supera de desenvolver o front-end de um e-commerce de games e
 ## Como executar
 
 ### dependências
-Inicialmente instale o npm.
 
+Instale as dependências do projeto com
 ```
 npm install --prefix server && npm install --prefix client
 ```
-Instale as dependências do projeto com
+
 
 ### servidor
 

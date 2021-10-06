@@ -21,8 +21,9 @@ Desafio da empresa Supera de desenvolver o front-end de um e-commerce de games e
 Para executar o front-end, é necessário rodar um simples servidor desenvolvido que
 lê o arquivo json e serve os dados via REST:
 ```
-npm install --prefix server
-npm run dev --prefix server
+cd server
+npm install
+npm run dev
 ```
 
 Testes da api podem ser realizados com:
@@ -34,8 +35,12 @@ npm run test --prefix server
 
 Com o servidor rodando, podemos executar o cliente desenvolvido:
 ```
-npm install --prefix client
-npm run test --prefix client
+cd client
+npm install
+```
+testes podem ser executados com
+```
+npm run test
 ```
 
 O site app pode ser executado pela url:

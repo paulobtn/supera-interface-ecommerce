@@ -1,4 +1,5 @@
 import NotFound from '../NotFound';
+import Loading from '../Loading';
 /* renderiza um componente a partir de uma requisição feita
  * com useRequest. Lida com mostrar load e redirecionar para
  * telas de erro */
@@ -12,7 +13,7 @@ export const renderWithRequest = (response, component) => {
       case REJECTED:
         return <NotFound />
       default:
-        return 'loading...'
+        return <Loading />
     }
 }
 

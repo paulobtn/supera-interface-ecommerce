@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/api/games', async (req, res) => {
   // recupera todos os jogos
-
+  
   let games = await GamesRepo.find();
   
   let query = req.query.q;

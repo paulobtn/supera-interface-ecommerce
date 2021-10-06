@@ -2,6 +2,8 @@
 
 Desafio da empresa Supera de desenvolver o front-end de um e-commerce de games em React.
 
+![webapp screenshot](/games-home.png)
+
 ## features desenvolvidas
 
 - api desenvolvida em express que lê o products.json e serve para o cliente

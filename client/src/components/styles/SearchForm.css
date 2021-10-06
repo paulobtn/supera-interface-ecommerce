@@ -16,6 +16,7 @@
     width: 90%;
     transition: all .2s;
     margin-right: -3.25rem;
+    line-height: 2.5rem;
 }
 
 .search__input:focus{

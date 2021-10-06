@@ -73,7 +73,7 @@ const Home = () => {
               options={[
                   {value: "price-asc",  label: "menor preço"},
                   {value: "price-desc", label: "maior preço"},
-                  {value: "name asc",   label: "nome"},
+                  {value: "name-asc",   label: "nome"},
                   {value: "score-desc", label: "popularidade"},
                 ]
               }

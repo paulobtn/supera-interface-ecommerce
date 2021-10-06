@@ -29,7 +29,7 @@ const SearchForm = () => {
         value={searchTerm}
         onChange={handleChange} 
         className="search__input"
-        placeholder="Pesquisar jogo"
+        placeholder="Pesquisar"
       />
       <button 
         className="search__button"

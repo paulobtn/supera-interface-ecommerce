@@ -14,6 +14,7 @@ const ShoppingCart = () => {
 
     return (
       <section className="shopping">
+        <div className="shopping__cart">
           {cart.shoppingCart.map((item) => {
             return (
               <CartItem 
@@ -22,15 +23,21 @@ const ShoppingCart = () => {
               />
             )
           })}
+        </div>
+        <div className="shopping__checkout">
+          <div className="shopping__text-value">
+            subtotal ({cart.quantity} itens): 
+            <span>{toBRL(cart.subtotal)} </span>
+          </div>
+          <div className="shopping__text-value">Frete: <span>{toBRL(cart.shipping)}</span></div>
+          <div className="shopping__text-value">Total: <span>{toBRL(cart.total)}</span></div>
+          <button className="shopping__pay btn">Pagar</button>
+        </div>
        
       </section>
     )
 
-        // <div>quantidade: {cart.quantity}</div>
-        // <div>Subtotal: {toBRL(cart.subtotal)}</div>
-        // <div>Frete: {toBRL(cart.shipping)}</div>
-        // <div>Isento de frete: {cart.freeShipping ? 'sim' : 'não'}</div>
-        // <div>Total: {toBRL(cart.total)}</div>
+          // <div>Isento de frete: {cart.freeShipping ? 'sim' : 'não'}</div>
   }
 
   return (renderComponent());

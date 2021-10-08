@@ -46,7 +46,7 @@
     border-radius: 1rem; 
     margin: 1rem auto;
     padding: 3rem;
-    width: 30rem;
+    width: 35rem;
   
 }
 
@@ -62,6 +62,7 @@
   font-weight: 600; 
   float: right;
 }
+
 
 .cut-through{
   font-family: inherit;
@@ -143,12 +144,12 @@
     display: block;
     margin: 0 auto;
     text-align: left;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400;
   }
 
   .shopping__pay{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .empty__message{
